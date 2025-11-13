@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        FRONTEND_IMAGE = "haritha380/frontend-app"
-        BACKEND_IMAGE = "haritha380/backend-app"
+        FRONTEND_IMAGE = "harithabandara/frontend-app"
+        BACKEND_IMAGE = "harithabandara /backend-app"
         GIT_REPO = "https://github.com/haritha380/devops.git"
         // Docker Hub credentials id (configure in Jenkins credentials)
-        DOCKER_CREDENTIALS_ID = 'dockerhub'
+        DOCKER_CREDENTIALS_ID = 'harithabandara'
     }
 
     options {
