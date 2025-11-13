@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+yarn-error.log
+*.env
+backend/.env
+frontend/.env
+frontend/build/
+dist/
+build/
+.DS_Store
+Thumbs.db
+logs
+*.log
+docker-compose.override.yml
