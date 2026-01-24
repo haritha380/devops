@@ -1,0 +1,335 @@
+Started by user [8mha:////4CWwYoPH+RorgL1kcieL/KV7v+wG2jsW5c9iPfbXx36tAAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz+EgZe/dLi1CL9jMSizJKMRACC/jg3wgAAAA==[0mHaritha Bandara
+[8mha:////4KASXAmE/JbwmEJz7F3Iq/fgEjQMaGX/aoHCieiJS0lhAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4BBjTDerOD2ZyQbku6CEdqnz666h12Mp670jZOhFqT/UAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4JlQ/W/mzzbm/49tvuxYPxmA6Y9TQ4AlCpWFvw6hEpqNAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/jenkins_home/jobs/Music-Instrument-seller/workspace
+[8mha:////4GhukesbKUREfguNIn2hvuFF2+n+3WGMOhP2A2FITsZIAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4J6ySlTeDrN/cjbzVeqzxwM8iDcrD6NMxYgpQoFchA96AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] withEnv
+[8mha:////4H0Zrib2T31ee755r50aMjhepxwTcumQkZcwyiTOFf24AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] {
+[8mha:////4IVrqeP34/a9pmVWawmDAg7J5p7P0GA8hvtWNkj0VxWhAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gwExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jcChmMxwAAAAA==[0m[Pipeline] timestamps
+[8mha:////4Jl9lDisLMjYP3Rjv1ccpK2K/xDuf+JXl3xL2WHmdvBMAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BAkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfpX/cvwAAAAA==[0m[Pipeline] {
+[8mha:////4IuChJQjwgvIqLfcRj5wTrtiGrxeEkiJSMWFf57S1KwYAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BSEm1igLJwhJCGmj/9skpZ04EVfjDgQqMWHJkm3Jes8X1CnCkaLjrcXOY9Ke92F0JfGJYncNNPGWLlwTJgqWSztJMva0VEnZwiJWwUrA2qIOlDy6DBvRqrtqgkLXnHMs20FA5c0AD2CikLOK+VvmCNvbaBLhj/MXAHOfge2K959f/QbB16AVwAAAAA==[0m[Pipeline] ansiColor
+[8mha:////4Bwkx8u2B7RhLmy3zmudHA0lG0omwS9yWsqc5b5JMt0IAAAAph+LCAAAAAAAAP9tjTEOwjAQBM9BKWgpeYQDJUJUtJYbXmBiY5xYd8G+kFS8iK/xBwKRqNhqZ6XVPF9Q5gQHSl42DtuAuQ6yi72fmhwotZdIg2zoLGvCTNFJ7QZN1h1n1MQO5ogCFgqWDutIOaBnWKnG3E0VDfrqxGna9gqKYG/wAKEmM5vEXxgTrK+9zYQ/z18BjB2D2DEU283nWL4Bsam+msEAAAA=[0m[Pipeline] {
+[2026-01-24T07:21:14.414Z] [8mha:////4FYlWzMgs2V8TgNRPYGCscu8jo9rbXUdwJA54FhV7rwnAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFfMkUzMDI0tjXTPDJENdkxTDRN3ERBNDXYOUlBRzIxPLFEPTJADvJY2CrwAAAA==[0m
+[8mha:////4H3X53kF/eP+LUAO6R6VETEbRiVTQS0HvRpZt5lE9+F5AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+DOrAycoiUzoiJNerCCUITQtLo/zZJSSdOxNW4Ay2VmPBg2Zas93pDGQOcKBjuNHYWY2t570czJ54pdDdPmTu68pYwkte80bkhpc9rbShpWFUw2AjYamw9RYsmwU44+ZCVl2iqSwrzdhTArBrgCYWYyUmG9C1TgP19VJHwx/kLgKlPwOrDYvXyLD8BobDcwgAAAA==[0m[Pipeline] stage
+[8mha:////4NsXikJrQF5PVbvlMPspszRPaZfIFvicZVmxaz5hgEL0AAAAph+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUZUVMrFEWThCaEJJG/7dJSjpxIq7GHWipxIQHy7ZkvdcbqhjgRMEwp7GzGFvLej+aObFMobt5yszRlbWEkbxmQmdBSp/XKihpWFWUsOGw1dh6ihZNgh138iFrL9HUlxTm7cihtGqAJxR8JicZ0rdMAfb3UUXCH+cvAKY+Qdk0ix2WZ/UBbwyqm8IAAAA=[0m[Pipeline] { (Checkout)
+[8mha:////4MJLV+FBREqGz3JKClR6QVf6dxHmemqh4ixaaz8pmurUAAAAox+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioERUaS03vMDExjix7oztkFS8iK/xBwKRqNhitbPNPF+wTBGOHC22hjpHqXEYfG+nhQPH7uJ5wJbP2DAl9galGSRrU88oORuYU5SwELAy1HhOjmyGtWjVXVVeka1OOU7fQUDp9A0eUIjJnFXMXxgjbK69Tkw/z18BjCFDud19ah/eeSmYHb4AAAA=[0m[Pipeline] checkout
+[2026-01-24T07:21:14.985Z] The recommended git tool is: NONE
+[2026-01-24T07:21:14.986Z] No credentials specified
+[2026-01-24T07:21:14.988Z]  > git rev-parse --resolve-git-dir /var/jenkins_home/jobs/Music-Instrument-seller/workspace/.git # timeout=10
+[2026-01-24T07:21:15.017Z] Fetching changes from the remote Git repository
+[2026-01-24T07:21:15.104Z]  > git config remote.origin.url https://github.com/haritha380/devops.git # timeout=10
+[2026-01-24T07:21:15.147Z] Fetching upstream changes from https://github.com/haritha380/devops.git
+[2026-01-24T07:21:15.147Z]  > git --version # timeout=10
+[2026-01-24T07:21:15.153Z]  > git --version # 'git version 2.47.3'
+[2026-01-24T07:21:15.154Z]  > git fetch --tags --force --progress -- https://github.com/haritha380/devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-01-24T07:21:17.350Z]  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+[2026-01-24T07:21:17.416Z] Checking out Revision 93428a688a85652b47451b6d1e43cc15237bedbf (refs/remotes/origin/main)
+[2026-01-24T07:21:17.416Z]  > git config core.sparsecheckout # timeout=10
+[2026-01-24T07:21:17.435Z]  > git checkout -f 93428a688a85652b47451b6d1e43cc15237bedbf # timeout=10
+[2026-01-24T07:21:17.729Z] Commit message: "remove unnessary space in groovy file"
+[2026-01-24T07:21:17.733Z]  > git rev-list --no-walk 93428a688a85652b47451b6d1e43cc15237bedbf # timeout=10
+[8mha:////4AMNYRVdrQisEJJjTKtdqvaGiJq4VVLhr9g5YPqK71mkAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiEB2iSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwhQ7ndf2r3BoOEdWO+AAAA[0m[Pipeline] }
+[8mha:////4Ksaquo2SqJ4TmE/LhqoULa7Np7jw1HZY8lmWXoYG68jAAAAox+LCAAAAAAAAP9tjTESwiAURH/iWNhaeggyKawcK1uGxhNggghh/idAJJUn8mreQTQzVm6xs2+b93zBOgY4UtDMKhwMxs4w7yZdFssUhqujzCxdWEcYySkmVBbUq9OCgpKCJVUNKw4bhZ2jaFAn2HIr77JxEnVzTqF8Bw616Ud4QMWLOcmQvjAH2N2mPhL+PH8FMHufoG73n2rfnAYgMb4AAAA=[0m[Pipeline] // stage
+[8mha:////4IYpYOS+6l9AJmS/VDPTwVFJbwF6mA9p/BJ3MQrGloi/AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUFhbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dvd7Md5mfxAbmRtcHCAAAA[0m[Pipeline] stage
+[8mha:////4MNEF+J2mS+gkGJr8tuRAvU+ZMYmWquf/+1TOjKbCLUxAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohULDAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD1+IXOLCAAAA[0m[Pipeline] { (Build Backend Image)
+[8mha:////4DOG2J9IYZ1XC3b6iEYKKLuux5G+B+B2x5T3iw8gdB6bAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUTCAhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD0rlhNLCAAAA[0m[Pipeline] script
+[8mha:////4A/Ajq8Wr0dQ97tLqAdZtUqV4DvYYIC3aBsoGJ40XHDSAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUbCDE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxASnCIIrCAAAA[0m[Pipeline] {
+[8mha:////4M9Wrhwvug4dYZxxurP/qni+kFrH4L20bPHZgnnR3DIeAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOICdAilorXc8AKTGOPEugu2g1PxIr7GH7CIRMUWq51t5vWGZfBQszfYaeothcbi4EaTFyb2/dVxwo4v2DAFdhqlTpJbfZpRctQwpyhhIWClqXEcLJkIa9Gph6qcIlOdo8/fUUBp2zs8oRDZHJWPX5g8bG5jG5h+nr8CmIYI5e6Qa78dPhmQ9Da+AAAA[0m[Pipeline] sh
+[2026-01-24T07:21:19.294Z] + docker build -t harithabandara/backend-app:latest -f backend/Dockerfile backend
+[2026-01-24T07:21:20.661Z] #0 building with "default" instance using docker driver
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #1 [internal] load build definition from Dockerfile
+[2026-01-24T07:21:20.662Z] #1 transferring dockerfile: 275B 0.0s done
+[2026-01-24T07:21:20.662Z] #1 DONE 0.1s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #2 [internal] load metadata for docker.io/library/node:18-slim
+[2026-01-24T07:21:20.662Z] #2 DONE 0.0s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #3 [internal] load .dockerignore
+[2026-01-24T07:21:20.662Z] #3 transferring context: 108B 0.0s done
+[2026-01-24T07:21:20.662Z] #3 DONE 0.0s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #4 [1/5] FROM docker.io/library/node:18-slim
+[2026-01-24T07:21:20.662Z] #4 DONE 0.0s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #5 [internal] load build context
+[2026-01-24T07:21:20.662Z] #5 transferring context: 66.94kB 0.1s done
+[2026-01-24T07:21:20.662Z] #5 DONE 0.1s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #6 [2/5] WORKDIR /usr/src/app
+[2026-01-24T07:21:20.662Z] #6 CACHED
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #7 [3/5] COPY package*.json ./
+[2026-01-24T07:21:20.662Z] #7 DONE 0.0s
+[2026-01-24T07:21:20.662Z] 
+[2026-01-24T07:21:20.662Z] #8 [4/5] RUN npm ci --only=production
+[2026-01-24T07:21:21.592Z] #8 1.087 npm warn config only Use `--omit=dev` to omit dev dependencies from the install.
+[2026-01-24T07:21:33.764Z] #8 12.45 
+[2026-01-24T07:21:33.764Z] #8 12.45 added 112 packages, and audited 113 packages in 11s
+[2026-01-24T07:21:33.764Z] #8 12.45 
+[2026-01-24T07:21:33.764Z] #8 12.45 16 packages are looking for funding
+[2026-01-24T07:21:33.764Z] #8 12.45   run `npm fund` for details
+[2026-01-24T07:21:33.764Z] #8 12.46 
+[2026-01-24T07:21:33.764Z] #8 12.46 5 high severity vulnerabilities
+[2026-01-24T07:21:33.764Z] #8 12.46 
+[2026-01-24T07:21:33.764Z] #8 12.46 To address issues that do not require attention, run:
+[2026-01-24T07:21:33.764Z] #8 12.46   npm audit fix
+[2026-01-24T07:21:33.764Z] #8 12.46 
+[2026-01-24T07:21:33.764Z] #8 12.46 To address all issues (including breaking changes), run:
+[2026-01-24T07:21:33.764Z] #8 12.46   npm audit fix --force
+[2026-01-24T07:21:33.764Z] #8 12.46 
+[2026-01-24T07:21:33.764Z] #8 12.46 Run `npm audit` for details.
+[2026-01-24T07:21:33.764Z] #8 12.47 npm notice
+[2026-01-24T07:21:33.764Z] #8 12.47 npm notice New major version of npm available! 10.8.2 -> 11.8.0
+[2026-01-24T07:21:33.764Z] #8 12.47 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.8.0
+[2026-01-24T07:21:33.765Z] #8 12.47 npm notice To update run: npm install -g npm@11.8.0
+[2026-01-24T07:21:33.765Z] #8 12.47 npm notice
+[2026-01-24T07:21:33.765Z] #8 DONE 12.6s
+[2026-01-24T07:21:33.765Z] 
+[2026-01-24T07:21:33.765Z] #9 [5/5] COPY . .
+[2026-01-24T07:21:33.765Z] #9 DONE 0.1s
+[2026-01-24T07:21:33.765Z] 
+[2026-01-24T07:21:33.765Z] #10 exporting to image
+[2026-01-24T07:21:33.765Z] #10 exporting layers
+[2026-01-24T07:21:34.698Z] #10 exporting layers 1.3s done
+[2026-01-24T07:21:34.698Z] #10 writing image sha256:32b7854f2a7b8854bfb3565128c795f165d0951b995b7020017b7dfc8762585a done
+[2026-01-24T07:21:34.698Z] #10 naming to docker.io/harithabandara/backend-app:latest 0.0s done
+[2026-01-24T07:21:34.698Z] #10 DONE 1.3s
+[8mha:////4A+4RtLxvuYyjZd6m0cXiEO0A/yHHMWWZSm6tR6y8jDhAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKi0CFEldZKwwtMbIwT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYPBXtNgKXYWvRtNXjhxGK6OJ+z5gh1TZKex1VPLSjcLtpw0LClKWAnYaOocR0smwVb08iErJ8lU5xTydxRQWnWHJxQim5MM6QtzgN1tVJHp5/krgNn7BOW+zlUfPiXWgpW+AAAA[0m[Pipeline] }
+[8mha:////4J8QbNN8KR1UnSxasGfvZ45MZLV8gsmm83W1qrBDI7ArAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIRqZAQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AEdlBFkvgAAAA==[0m[Pipeline] // script
+[8mha:////4De1E0P9EjizdC00cJePLyFeyrLERjb0BG6SnrwEgnMXAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw8pWvI/vgAAAA==[0m[Pipeline] }
+[8mha:////4L8I+pWPnXO5xMaXb/qHPpbcfYf9FUlD2lhMNAXtW2OGAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiEKJBqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw8HWvBVvgAAAA==[0m[Pipeline] // stage
+[8mha:////4NqCkZr8tL8fxigaUdRZmdSN90vc4LDBZxcxrv3zso7QAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUkJhQJ9aoCycITQhJo/9LkpJOnIircQcClZjwYNmWrPd8QRU8NOQ1swp7g6EzbHCjzokl8v3FUWKWzqwjDOQUa1VqSarjXFuKCmYVJSw4LBV2joJBHWHFrbiL2gnU9Sn6vB04lEbe4AEFz+QofPyWycP6OspA+OP8BcA0RCi3m2y7/edZvQGK+cl2wgAAAA==[0m[Pipeline] stage
+[8mha:////4NoajVVsPDGW2Rl36fWlWy9xZ+1eJ1nG7zfs0OKZkIR7AAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUQoIFMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfACW9ZT2wgAAAA==[0m[Pipeline] { (Build Frontend Image)
+[8mha:////4MwfxwtuJo9wlKBm+qzToHEIEmFaj7aG5wgzXLYSaXGCAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYoABMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAAyQCqkwgAAAA==[0m[Pipeline] script
+[8mha:////4PXH97HHvTxO6PSPUzh4eyHpAUSWkkF8aavRPLiXCqmZAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUYgEJMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAAnLfKUwgAAAA==[0m[Pipeline] {
+[8mha:////4PwLXhzBnUFt/w1dxnvUjKZii8pD/LPHRFyRCml/5WVOAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiUYEQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGPIUG53n9qHNwcnzs++AAAA[0m[Pipeline] sh
+[2026-01-24T07:21:39.038Z] + docker build -t harithabandara/frontend-app:latest -f frontend/Dockerfile frontend
+[2026-01-24T07:21:39.616Z] #0 building with "default" instance using docker driver
+[2026-01-24T07:21:39.616Z] 
+[2026-01-24T07:21:39.616Z] #1 [internal] load build definition from Dockerfile
+[2026-01-24T07:21:39.616Z] #1 transferring dockerfile: 297B 0.0s done
+[2026-01-24T07:21:39.616Z] #1 DONE 0.1s
+[2026-01-24T07:21:39.616Z] 
+[2026-01-24T07:21:39.616Z] #2 [internal] load metadata for docker.io/library/node:18-alpine
+[2026-01-24T07:21:39.616Z] #2 DONE 0.0s
+[2026-01-24T07:21:39.616Z] 
+[2026-01-24T07:21:39.616Z] #3 [internal] load metadata for docker.io/library/nginx:alpine
+[2026-01-24T07:21:39.616Z] #3 DONE 0.0s
+[2026-01-24T07:21:39.616Z] 
+[2026-01-24T07:21:39.616Z] #4 [internal] load .dockerignore
+[2026-01-24T07:21:39.616Z] #4 transferring context: 103B 0.0s done
+[2026-01-24T07:21:39.888Z] #4 DONE 0.1s
+[2026-01-24T07:21:39.888Z] 
+[2026-01-24T07:21:39.888Z] #5 [builder 1/6] FROM docker.io/library/node:18-alpine
+[2026-01-24T07:21:39.888Z] #5 DONE 0.0s
+[2026-01-24T07:21:39.888Z] 
+[2026-01-24T07:21:39.888Z] #6 [stage-1 1/2] FROM docker.io/library/nginx:alpine
+[2026-01-24T07:21:39.888Z] #6 CACHED
+[2026-01-24T07:21:39.888Z] 
+[2026-01-24T07:21:39.888Z] #7 [internal] load build context
+[2026-01-24T07:21:39.888Z] #7 transferring context: 673.74kB 0.1s done
+[2026-01-24T07:21:39.888Z] #7 DONE 0.2s
+[2026-01-24T07:21:39.888Z] 
+[2026-01-24T07:21:39.888Z] #8 [builder 2/6] WORKDIR /app
+[2026-01-24T07:21:39.888Z] #8 CACHED
+[2026-01-24T07:21:39.888Z] 
+[2026-01-24T07:21:39.888Z] #9 [builder 3/6] COPY package*.json ./
+[2026-01-24T07:21:39.888Z] #9 DONE 0.1s
+[2026-01-24T07:21:40.155Z] 
+[2026-01-24T07:21:40.155Z] #10 [builder 4/6] RUN npm ci
+[2026-01-24T07:21:52.088Z] #10 10.53 npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+[2026-01-24T07:21:52.088Z] #10 10.53 npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+[2026-01-24T07:21:52.088Z] #10 11.25 npm warn deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+[2026-01-24T07:21:54.625Z] #10 14.38 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+[2026-01-24T07:21:54.625Z] #10 14.73 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+[2026-01-24T07:21:54.913Z] #10 14.75 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+[2026-01-24T07:21:56.283Z] #10 16.33 npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+[2026-01-24T07:21:56.885Z] #10 16.78 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[2026-01-24T07:21:58.261Z] #10 18.19 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+[2026-01-24T07:21:58.261Z] #10 18.19 npm warn deprecated
+[2026-01-24T07:21:58.261Z] #10 18.19 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+[2026-01-24T07:22:10.424Z] #10 30.15 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[2026-01-24T07:22:11.822Z] #10 31.58 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[2026-01-24T07:22:17.054Z] #10 36.59 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+[2026-01-24T07:22:17.054Z] #10 36.98 npm warn deprecated domexception@2.0.1: Use your platform's native DOMException instead
+[2026-01-24T07:22:33.331Z] #10 52.56 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+[2026-01-24T07:22:38.572Z] #10 58.64 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+[2026-01-24T07:22:38.852Z] #10 58.68 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+[2026-01-24T07:22:43.014Z] #10 63.05 npm warn deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+[2026-01-24T07:22:43.297Z] #10 63.11 npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+[2026-01-24T07:22:43.297Z] #10 63.12 npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+[2026-01-24T07:22:43.581Z] #10 63.66 npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+[2026-01-24T07:22:43.870Z] #10 63.84 npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+[2026-01-24T07:22:44.827Z] #10 64.83 npm warn deprecated source-map@0.8.0-beta.0: The work that was done in this beta branch won't be included in future versions
+[2026-01-24T07:22:49.001Z] #10 68.89 npm warn deprecated @babel/plugin-proposal-private-property-in-object@7.21.11: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
+[2026-01-24T07:23:03.294Z] #10 82.49 
+[2026-01-24T07:23:03.294Z] #10 82.49 added 1326 packages, and audited 1327 packages in 1m
+[2026-01-24T07:23:03.294Z] #10 82.49 
+[2026-01-24T07:23:03.294Z] #10 82.49 271 packages are looking for funding
+[2026-01-24T07:23:03.294Z] #10 82.49   run `npm fund` for details
+[2026-01-24T07:23:03.294Z] #10 82.55 
+[2026-01-24T07:23:03.294Z] #10 82.55 19 vulnerabilities (5 moderate, 14 high)
+[2026-01-24T07:23:03.294Z] #10 82.55 
+[2026-01-24T07:23:03.294Z] #10 82.55 To address issues that do not require attention, run:
+[2026-01-24T07:23:03.294Z] #10 82.55   npm audit fix
+[2026-01-24T07:23:03.294Z] #10 82.55 
+[2026-01-24T07:23:03.294Z] #10 82.55 To address all issues (including breaking changes), run:
+[2026-01-24T07:23:03.294Z] #10 82.55   npm audit fix --force
+[2026-01-24T07:23:03.294Z] #10 82.55 
+[2026-01-24T07:23:03.294Z] #10 82.55 Run `npm audit` for details.
+[2026-01-24T07:23:03.294Z] #10 82.56 npm notice
+[2026-01-24T07:23:03.294Z] #10 82.56 npm notice New major version of npm available! 10.8.2 -> 11.8.0
+[2026-01-24T07:23:03.294Z] #10 82.56 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.8.0
+[2026-01-24T07:23:03.294Z] #10 82.56 npm notice To update run: npm install -g npm@11.8.0
+[2026-01-24T07:23:03.294Z] #10 82.56 npm notice
+[2026-01-24T07:23:03.294Z] #10 DONE 83.5s
+[2026-01-24T07:23:03.596Z] 
+[2026-01-24T07:23:03.596Z] #11 [builder 5/6] COPY . .
+[2026-01-24T07:23:03.596Z] #11 DONE 0.1s
+[2026-01-24T07:23:03.596Z] 
+[2026-01-24T07:23:03.596Z] #12 [builder 6/6] RUN npm run build
+[2026-01-24T07:23:04.556Z] #12 1.056 
+[2026-01-24T07:23:04.556Z] #12 1.056 > frontend@0.1.0 build
+[2026-01-24T07:23:04.556Z] #12 1.056 > react-scripts build
+[2026-01-24T07:23:04.556Z] #12 1.056 
+[2026-01-24T07:23:05.944Z] #12 2.399 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-01-24T07:23:07.321Z] #12 3.894 Creating an optimized production build...
+[2026-01-24T07:23:22.150Z] #12 18.63 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-01-24T07:23:24.032Z] #12 20.17 Compiled successfully.
+[2026-01-24T07:23:24.032Z] #12 20.17 
+[2026-01-24T07:23:24.032Z] #12 20.17 File sizes after gzip:
+[2026-01-24T07:23:24.032Z] #12 20.17 
+[2026-01-24T07:23:24.032Z] #12 20.19   53.78 kB  build/static/js/main.a2986957.js
+[2026-01-24T07:23:24.032Z] #12 20.19   1.01 kB   build/static/css/main.a9619240.css
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 20.19 The project was built assuming it is hosted at /.
+[2026-01-24T07:23:24.032Z] #12 20.19 You can control this with the homepage field in your package.json.
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 20.19 The build folder is ready to be deployed.
+[2026-01-24T07:23:24.032Z] #12 20.19 You may serve it with a static server:
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 20.19   npm install -g serve
+[2026-01-24T07:23:24.032Z] #12 20.19   serve -s build
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 20.19 Find out more about deployment here:
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 20.19   https://cra.link/deployment
+[2026-01-24T07:23:24.032Z] #12 20.19 
+[2026-01-24T07:23:24.032Z] #12 DONE 20.3s
+[2026-01-24T07:23:24.980Z] 
+[2026-01-24T07:23:24.980Z] #13 [stage-1 2/2] COPY --from=builder /app/build /usr/share/nginx/html
+[2026-01-24T07:23:25.241Z] #13 DONE 0.1s
+[2026-01-24T07:23:25.241Z] 
+[2026-01-24T07:23:25.241Z] #14 exporting to image
+[2026-01-24T07:23:25.241Z] #14 exporting layers 0.1s done
+[2026-01-24T07:23:25.241Z] #14 writing image sha256:ea87c6ee4241db3bda824303368a10aaeb910d00238413ca50eeafda26118b8a done
+[2026-01-24T07:23:25.241Z] #14 naming to docker.io/harithabandara/frontend-app:latest 0.0s done
+[2026-01-24T07:23:25.241Z] #14 DONE 0.1s
+[8mha:////4G8PK2YZCeWf+uFgdY/YRHah850B00kAaDwMODK80ELFAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCoEFCqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw9hbYOkvgAAAA==[0m[Pipeline] }
+[8mha:////4I3dLt78cbwv6vg8/PXeazUHZvTfgt3qZROqtAu5fLCYAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIioKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDut7l2hw9Vo2D/vgAAAA==[0m[Pipeline] // script
+[8mha:////4LxVZX5+lMbyEtrUZoI8L+s5ZFZJKhL6nAlHzEua37ltAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBYkGUaW10vACExvjxLoztkNS8SK+xh+wiETFFqudbeb1hnUMcOJgsNc0WIqdRe9GkxdOHIar4wl7vmDHFNlpbPXUstLNgi0nDUuKElYCNpo6x9GSSbAVvXzIykky1TmF/B0FlFbd4QmFyOYkQ/rCHGB3G1Vk+nn+CmD2PkG5r3PVhw9t4fMOvgAAAA==[0m[Pipeline] }
+[8mha:////4BftwkRd1MhZKg7UZZlihiroMC91H0aPkvzLNl6XKt4+AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMKRiKgQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AFyY6ZcvgAAAA==[0m[Pipeline] // stage
+[8mha:////4CbKS+BQEixew3OZbPTTujs3fCJkI6BZQMRnI+paMVCiAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBBvqxBp14QShCSFp9H9JUtKJE3E17kCgEhMeLNuS9Z4vqIKHhrxmVmFvMHSGDW7UObFEvr84SszSmXWEgZxirUotSXWca0tRwayihAWHpcLOUTCoI6y4FXdRO4G6PkWftwOH0sgbPKDgmRyFj98yeVhfRxkIf5y/AJiGCOV2k223/zyrN5sh4hvCAAAA[0m[Pipeline] stage
+[8mha:////4OzVnHe2vyBGyt3e86f2mpYTCr9JgvxV24sYAf2r1RFXAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0ACbE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5Dv9rMd5mfxASMfXIzCAAAA[0m[Pipeline] { (Docker Login & Push)
+[8mha:////4MnVNKwzNTUFYq0Bx5dVe4mbLpZnMo/9j41lFRXHBLIrAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0QLAgpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD02yRsvCAAAA[0m[Pipeline] withCredentials
+[2026-01-24T07:23:31.139Z] Masking supported pattern matches of $DOCKER_PASS
+[8mha:////4LlX+dz/PFT6qysMtaHiGA3WTdL2Nt0iHCfcuihm6ZqSAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0QIIBMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfADpB/iZwgAAAA==[0m[Pipeline] {
+[8mha:////4BVu0/KsG4M/GP+60+rh7qvTaLpumK7Yj5IG+jaSVcvMAAAAqB+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YAAJMXWNsnCC0ISQNvq//KS0EyfiatyBlkpMeLBsS9Z7vaGIDCdiJxqLrcdYe9GF3k1JDMTtNdAgGrqImjBSsELZQZGx1VIVJQuLshxWEtYW60DRo0uwkY1+6DJodOU58bQdJeTe3OEJmZzISXP6lpFhe+tNJPxx/gJg7BLku/1sh/lZfAD8aiCpwgAAAA==[0m[Pipeline] script
+[8mha:////4Ny+05rEZOauh0l5KiuGPF+teAwpi4NIFFFKeXOzyXUXAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoh0YAEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYJ8t5/tMD+LD59NhPHCAAAA[0m[Pipeline] {
+[8mha:////4MNKMuOwq1Mez4UmYnHC3uaeoKNo1cRiXEkCubYEoS3eAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOKCBA1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw/W61xwvgAAAA==[0m[Pipeline] sh
+[2026-01-24T07:23:32.698Z] + echo Logging in to Docker registry...
+[2026-01-24T07:23:32.700Z] Logging in to Docker registry...
+[8mha:////4GwDKfw4eQWHfyG9ZB8XUE9rClZY6WOqKvKKa7T1zuSSAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiBA1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw+X2kdpvgAAAA==[0m[Pipeline] sh
+[2026-01-24T07:23:33.501Z] Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+[2026-01-24T07:23:33.502Z] 		 Affected argument(s) used the following variable(s): [DOCKER_PASS]
+[2026-01-24T07:23:33.502Z] 		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
+[2026-01-24T07:23:33.798Z] + + dockerecho **** login -u
+[2026-01-24T07:23:33.798Z]  harithabandara --password-stdin
+[2026-01-24T07:23:37.938Z] WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+[2026-01-24T07:23:37.938Z] Configure a credential helper to remove this warning. See
+[2026-01-24T07:23:37.938Z] https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+[2026-01-24T07:23:37.938Z] 
+[2026-01-24T07:23:37.938Z] Login Succeeded
+[8mha:////4FmYmXDA9ZxcDM336BNjtgRIHPpTODE3+XOyQXQV3UbOAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiAQ1CqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKYhQrk75Npvhw9UiWpCvgAAAA==[0m[Pipeline] sh
+[2026-01-24T07:23:38.631Z] + docker push harithabandara/backend-app:latest
+[2026-01-24T07:23:38.631Z] The push refers to repository [docker.io/harithabandara/backend-app]
+[2026-01-24T07:23:39.996Z] 85350e734c3a: Preparing
+[2026-01-24T07:23:39.996Z] ac18c23224ab: Preparing
+[2026-01-24T07:23:39.996Z] 392c3969e12d: Preparing
+[2026-01-24T07:23:39.996Z] 1040bd38122c: Preparing
+[2026-01-24T07:23:39.996Z] e1e93a4fa4fd: Preparing
+[2026-01-24T07:23:39.996Z] 9b95ddc8a140: Preparing
+[2026-01-24T07:23:39.996Z] cd1cd7c2e57b: Preparing
+[2026-01-24T07:23:39.996Z] 206f13f5e317: Preparing
+[2026-01-24T07:23:39.996Z] ace34d1d784c: Preparing
+[2026-01-24T07:23:39.996Z] 9b95ddc8a140: Waiting
+[2026-01-24T07:23:39.996Z] cd1cd7c2e57b: Waiting
+[2026-01-24T07:23:39.996Z] 206f13f5e317: Waiting
+[2026-01-24T07:23:39.996Z] ace34d1d784c: Waiting
+[2026-01-24T07:23:42.501Z] e1e93a4fa4fd: Layer already exists
+[2026-01-24T07:23:45.006Z] 9b95ddc8a140: Layer already exists
+[2026-01-24T07:23:46.371Z] cd1cd7c2e57b: Layer already exists
+[2026-01-24T07:23:46.371Z] 392c3969e12d: Pushed
+[2026-01-24T07:23:46.371Z] 85350e734c3a: Pushed
+[2026-01-24T07:23:47.741Z] 206f13f5e317: Layer already exists
+[2026-01-24T07:23:47.741Z] 1040bd38122c: Pushed
+[2026-01-24T07:23:47.741Z] ace34d1d784c: Layer already exists
+[2026-01-24T07:24:34.295Z] ac18c23224ab: Pushed
+[2026-01-24T07:24:36.175Z] latest: digest: sha256:3bc728efd46ae7515bd485087d3f881d2cece161c080cdfd431461f10edbeac9 size: 2203
+[8mha:////4NkSSHSiIQQhj06Sxf3/i2+WjQAIWalFdU05el0X1ecFAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJShAYhqrRWGl5gYmOcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThwM9poGS7Gz6N1o8sKJw3B1PGHPF+yYIjuNrZ5aVrpZsOWkYUlRwkrARlPnOFoyCbailw9ZOUmmOqeQv6OA0qo7PKEQ2ZxkSF+YA+xuo4pMP89fAcw+QVkfcu1r/wEVuHFbvgAAAA==[0m[Pipeline] sh
+[2026-01-24T07:24:38.030Z] + docker push harithabandara/frontend-app:latest
+[2026-01-24T07:24:38.031Z] The push refers to repository [docker.io/harithabandara/frontend-app]
+[2026-01-24T07:24:38.961Z] 58a810be7b38: Preparing
+[2026-01-24T07:24:38.961Z] 25906c27b84d: Preparing
+[2026-01-24T07:24:38.961Z] 99ea4bde418d: Preparing
+[2026-01-24T07:24:38.961Z] 3297b9628ff3: Preparing
+[2026-01-24T07:24:38.961Z] b74d92be8225: Preparing
+[2026-01-24T07:24:38.961Z] 2c79d5d895bb: Preparing
+[2026-01-24T07:24:38.961Z] 2660a7d4b906: Preparing
+[2026-01-24T07:24:38.961Z] 50b58ca2a3f5: Preparing
+[2026-01-24T07:24:38.961Z] 256f393e029f: Preparing
+[2026-01-24T07:24:38.961Z] 2c79d5d895bb: Waiting
+[2026-01-24T07:24:38.961Z] 50b58ca2a3f5: Waiting
+[2026-01-24T07:24:38.961Z] 256f393e029f: Waiting
+[2026-01-24T07:24:38.961Z] 2660a7d4b906: Waiting
+[2026-01-24T07:24:41.475Z] 99ea4bde418d: Layer already exists
+[2026-01-24T07:24:41.475Z] 3297b9628ff3: Layer already exists
+[2026-01-24T07:24:41.475Z] 25906c27b84d: Layer already exists
+[2026-01-24T07:24:41.475Z] b74d92be8225: Layer already exists
+[2026-01-24T07:24:42.046Z] 2c79d5d895bb: Layer already exists
+[2026-01-24T07:24:42.046Z] 50b58ca2a3f5: Layer already exists
+[2026-01-24T07:24:42.320Z] 256f393e029f: Layer already exists
+[2026-01-24T07:24:42.320Z] 2660a7d4b906: Layer already exists
+[2026-01-24T07:24:52.242Z] 58a810be7b38: Pushed
+[2026-01-24T07:25:02.159Z] latest: digest: sha256:953ca5af8f67378e9e0875c9144a77c570867fba31fcf0edfed297bdce11cefe size: 2199
+[8mha:////4B+8nBKdSVjU25wHNfQVzE+h9jRseJjZgh1dcYT9ifflAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIpSIMQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrOtf+8AEuEKmUvgAAAA==[0m[Pipeline] }
+[8mha:////4BGkP6Ln1sCLJXiPVDhEZ4S0gYtn9ke4lpQvY3LZqaHSAAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSABISSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryt8+1PXwAHfPyKL4AAAA=[0m[Pipeline] // script
+[8mha:////4N49I7j+PdHSmffhr0097Gwk/lEzRYFZ5Jg9o7TOI6k2AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDu9rm2hw8inNk+vgAAAA==[0m[Pipeline] }
+[8mha:////4NeMsNye6CPHlPAC4snEwMWmxn97zMeL9IR3tSiIMNX6AAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSgKBAqWgtN7zAJMY4se6C7eBUvIiv8QcsIlGxxWpnm3m9YRk81OwNdpp6S6GxOLjR5IWJfX91nLDjCzZMgZ1GqZPkVp9mlBw1zClKWAhYaWocB0smwlp06qEqp8hU5+jzdxRQ2vYOTyhENkfl4xcmD5vb2Aamn+evAKZhiFDuDrm2+w8Rf4KCvgAAAA==[0m[Pipeline] // withCredentials
+[8mha:////4M5vxR0rtYAcMXLQpsOcblVzH7wGs+bvfoH3pwfBAjs7AAAAph+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSABISSkVrueEFJjHGiXUXbAen4kV8jT9gEYmKLVY728zrDcvgoWZvsNPUWwqNxcGNJi9M7Pur44QdX7BhCuw0Sp0kt/o0o+SoYU5RwkLASlPjOFgyEdaiUw9VOUWmOkefv6OA0rZ3eEIhsjkqH78wedjcxjYw/Tx/BTANQ4Ryd8i13X8Afpzd6r4AAAA=[0m[Pipeline] }
+[8mha:////4HHlpyKJI1623rmMsvz3bhmWWNUXgafqqLVRJ6/u9BeqAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPMIpSIMQVVorDS8w8WGcWHfGdkgqXsTX+AMWkajYYrWzzbzesI4BThyM6JEGS7GzwrvR5CUmDsPV8SR6voiOKbJD0eLUssZmwZYTwpKihJWEDVLnOFoyCbayVw9VOUWmOqeQv6OE0uo7PKGQ2ZxUSF+YA+xuo45MP89fAczeJyjrQ659/QFNf4ZWvgAAAA==[0m[Pipeline] // stage
+[8mha:////4GmKV6ICdRJoZ1EX1Eh8BhfON1IaQ31RE8Q4xzbkXxm1AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycoi0DEyIqWvUhROEJoSk0f8lSUknTsTVuAOBSkx4sGxL1nu+oAoejuQ1swoHg6E3bHSTzokl8sPFUWKWzqwnDOQU61TqSKp2qR1FBYuKElYc1gp7R8GgjrDhVtxF7QTq+hR93g4cSiNv8ICCZ3IUPn7L7GF7nWQg/HH+AmAeI5S7Jtu++TyrN7dWo+PCAAAA[0m[Pipeline] stage
+[8mha:////4NDXF+Ty4W6e/r5jSTUXiiPRqpxgwcGgb34hITLOmc1oAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycogUBibE1DXKwglCE0La6P/yk9JOnIircQdaKjHhwbItWe/1hiIynIidaCy2HmPtRRd6NyUxELfXQINo6CJqwkjBCmUHRcZWS1WULCzKclhJWFusA0WPLsFGNvqhy6DRlefE03aUkHtzhydkciInzelbRobtrTeR8Mf5C4CxS5AfdrPt52fxAW2++SvCAAAA[0m[Pipeline] { (Declarative: Post Actions)
+[8mha:////4IjtzzQkMWvuaa8VoTcjyhzIILrWQTV6ovDCGo7PJZE1AAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUIDEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LDwMT42zCAAAA[0m[Pipeline] script
+[8mha:////4FfaY0Cc5bg0xSzUultG1MPBQdwB8v0qcQbm2+Xe0QPMAAAApx+LCAAAAAAAAP9tjTEOwjAUQ3+LOrAycohUAjEhpq5RFk4QmhDSRv+Xn5R24kRcjTvQUokJD5ZtyXqvNxSR4UTsRGOx9RhrL7rQuymJgbi9BhpEQxdRE0YKVig7KDK2WqqiZGFRlsNKwtpiHSh6dAk2stEPXQaNrjwnnrajhNybOzwhkxM5aU7fMjJsb72JhD/OXwCMXYL8sJttPz+LD6emXT7CAAAA[0m[Pipeline] {
+[8mha:////4Kl+amec2L8PIUqaveL8v0i2TaqduKz1bP2FoKcLnZ8BAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSABWiSmu54QUmNsaJdWdsh6TiRXyNPxCIRMUWq51t5vmCZYpw5GixNdQ5So3D4Hs7LRw4dhfPA7Z8xoYpsTcozSBZm3pGydnAnKKEhYCVocZzcmQzrEWr7qryimx1ynH6DgJKp2/wgEJM5qxi/sIYYXPtdWL6ef4KYAwZyv32U7vwBiwS7Xe+AAAA[0m[Pipeline] sh
+[2026-01-24T07:25:09.932Z] + docker logout
+[2026-01-24T07:25:09.935Z] Removing login credentials for https://index.docker.io/v1/
+[8mha:////4PyzX2BqABA6vJutDTaN9xzwol6q96voawPQKgqY9VTFAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJSoFSIitZKwwtMYowd686xHZyKF/E1/kAgEhVbrHa2mecL1jHAkYNGq6g3FFuD3o16Xpg59FfHGS1fsGWK7BQ2KjfcqdOCDScFS4oSVgI2ilrH0ZBOsBVW3mXlJOnqnML8HQSUphvgAYWYzUmG9IUpwO42dpHp5/krgMn7BGVdf2r/BqeGDU++AAAA[0m[Pipeline] }
+[8mha:////4GyoqVePBUCDntMDZYIZuZ6+w2GJoeWy5MOdo9ET3m4VAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiIUGDqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDyFDu9p/avgGfxJ6+vgAAAA==[0m[Pipeline] // script
+[8mha:////4IEWTopA2Fcx4MFRCnp0Mv8ttzU9vcMSOve0IXbjU3WtAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiCkSBqNJabniBiY1xYt0Z2yGpeBFf4w8EIlGxxWpnm3m+YJkiHDlabA11jlLjMPjeTgsHjt3F84Atn7FhSuwNSjNI1qaeUXI2MKcoYSFgZajxnBzZDGvRqruqvCJbnXKcvoOA0ukbPKAQkzmrmL8wRthce52Yfp6/AhhDhnK3/dQ+vAHGUF/LvgAAAA==[0m[Pipeline] echo
+[2026-01-24T07:25:13.918Z] Pipeline finished successfully.
+[8mha:////4J0LSmTR75NfzYyU8RbHoMLP7Lm2Aeob8itNaXpApSaBAAAApR+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOIiCiQkRJXWcsMLTGyME+vO2A5JxYv4Gn8gEImKLVY728zzBcsU4cjRYmuoc5Qah8H3dlo4cOwungds+YwNU2JvUJpBsjb1jJKzgTlFCQsBK0ON5+TIZliLVt1V5RXZ6pTj9B0ElE7f4AGFmMxZxfyFMcLm2uvE9PP8FcAYQoZyt//U9g1V9J0dvgAAAA==[0m[Pipeline] }
+[8mha:////4LR3jZLVhv42Gwz7ynpOAxaAd2VBqZChbinfg8LRPEmxAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOJCQ4EQVVrLDS8wsTFOrDtjOyQVL+Jr/IFAJCq2WO1sM88XLFOEI0eLraHOUWocBt/baeHAsbt4HrDlMzZMib1BaQbJ2tQzSs4G5hQlLASsDDWekyObYS1adVeVV2SrU47TdxBQOn2DBxRiMmcV8xfGCJtrrxPTz/NXAGMIGcrd/lPbN2YXxqG+AAAA[0m[Pipeline] // stage
+[8mha:////4EKXx3gJzJVzZV3P/F90QWw5Rr371h69DXcQ+kzB5+EyAAAApB+LCAAAAAAAAP9tjTEOwjAQBC9BFLSUPOISGhpEldZKwwtMbIwT687YDknFi/gaf8AiEhVbrHa2mdcb1jHAiYPBXtNgKXYWvRtNXjhxGK6OJ+z5gh1TZKex1VPLSjcLtpw0LClKWAnYaOocR0smwVb08iErJ8lU5xTydxRQWnWHJxQim5MM6QtzgN1tVJHp5/krgNn7BOWhzrWvPzeZTdO+AAAA[0m[Pipeline] }
+[2026-01-24T07:25:15.025Z] [8mha:////4HvjjDwD/wUjsd9IcYMrsYUiyhtYoF3Dr3Xh7yWssF4wAAAAqx+LCAAAAAAAAP9b85aBtbiIQSujNKU4P0+vIKc0PTOvWC8xrzgzOT8nv0gvMbkkEyjhCKb88ktSdwVsu2efuqidiYHRh4EDIu2ZUsIg5JOVWJaon5OYl64fXFKUmZduXVHEIAU1ODk/rzg/J1XPGUKDDGKAAEYmBoaKghIGFTNDi+Rks1QzXQMTYwNdE5NEI11Lw0QLXUtzQ/OUJDNDE+PkRABcgFOSrwAAAA==[0m
+[8mha:////4Gvn9Q4GsUW94ehI7PvqZV6J+T8CD9Cgh2KG3YT+HYDUAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRDRJCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5LutINt/ADBOkYy9AAAA[0m[Pipeline] // ansiColor
+[8mha:////4ADtrdoBNrelUDU2Gu5pUY7AktabJm88iNYxK7CX7g2iAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRKBASoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN9tBdn+A3YENry9AAAA[0m[Pipeline] }
+[8mha:////4Ai/lrLs7WCkf2FnTW+3XM+Dst3hBck+7itU7L1bvgy2AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpkKBAVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5LutINt/AFcw6RG9AAAA[0m[Pipeline] // timestamps
+[8mha:////4CnGQZiA08Jx9QKLxa2j/IVUf8ApHMYsFsUjTfYvG5tgAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiI0Do1jZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0gL/eCrPwA0dzO1L0AAAA=[0m[Pipeline] }
+[8mha:////4AhBpz1o7tkpDUWAA7J7RjzI0qfMyKLOZP83BIiOb5gsAAAAoh+LCAAAAAAAAP9tjTESgjAQRT84FraWHiJU2DhWthkaTxAhxkBmF5NFqDyRV/MOMjJj5a/+e817vbFOEUeOTrWWOk+p9qoPg5ufGjl218CjavmiaqbEwarKjhU39rRgxWKxLMux0thYqgMnT06w1a15mCIYcsVZ4uwOGrlv7ngi03NZTJQvTBG729Akpl/nbwBT3wvyfSnIyg/bpKdwvQAAAA==[0m[Pipeline] // withEnv
+[8mha:////4OMCkxnVVArhtX/zILYiGknwtOg6rh1Cg3lZO/pJXztfAAAAox+LCAAAAAAAAP9tjTESgjAQRT84FraWHiI0Do1jZZuh8QQRYgxkdjFZhMoTeTXvICMzVv7qv9e81xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0gL0tBtv8Ane4AQL0AAAA=[0m[Pipeline] }
+[8mha:////4HffZTCHRCj5mYY33UNciU2XI5ZIhcg8QRQyr1fWqNYBAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIpkKBAVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axq4T5Lu9INt+AI5SBOO9AAAA[0m[Pipeline] // node
+[8mha:////4Oqrys1wRK561WYuRn00kseGFEfQvt0tTV50scnYfkM6AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRKBASoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/tBdn2A8n1Uxa9AAAA[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

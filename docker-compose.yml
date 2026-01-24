@@ -1,3 +1,4 @@
+version: '3'
 services:
   backend:
     build:
@@ -8,6 +9,9 @@ services:
     env_file:
       - ./backend/.env
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
   frontend:
     build:
@@ -18,6 +22,22 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: root
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
 networks:
   default:
