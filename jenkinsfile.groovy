@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         FRONTEND_IMAGE = "harithabandara/frontend-app"
-        BACKEND_IMAGE = "harithabandara /backend-app"
+        BACKEND_IMAGE = "harithabandara/backend-app"
         GIT_REPO = "https://github.com/haritha380/devops.git"
         // Docker Hub credentials id (configure in Jenkins credentials)
         DOCKER_CREDENTIALS_ID = 'harithabandara'
