@@ -4,6 +4,8 @@ const path = require('path');
 require('dotenv').config();
 const connectDB = require('./config/database');
 const authRoutes = require('./routes/auth');
+const instrumentRoutes = require('./routes/instruments');
+const instrumentPartRoutes = require('./routes/instrumentParts');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,6 +31,30 @@ app.get('/api/data', (req, res) => {
 
 // Auth routes
 app.use('/api/auth', authRoutes);
+
+// Create admin user route (for initial setup)
+app.post('/api/create-admin', async (req, res) => {
+	try {
+		const User = require('./models/User');
+		const existingAdmin = await User.findOne({ email: 'bandaraindika@gmail.com' });
+		if (existingAdmin) {
+			return res.json({ message: 'Admin user already exists' });
+		}
+		const admin = new User({
+			name: 'Admin User',
+			email: 'bandaraindika@gmail.com',
+			password: 'Haritha@2001',
+		});
+		await admin.save();
+		res.json({ message: 'Admin user created successfully!' });
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
+// Instrument routes
+app.use('/api/instruments', instrumentRoutes);
+app.use('/api/instrument-parts', instrumentPartRoutes);
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {

@@ -36,7 +36,7 @@ const Register = () => {
     );
 
     if (result.success) {
-      navigate('/dashboard');
+      navigate('/instruments');
     } else {
       setError(result.message);
     }

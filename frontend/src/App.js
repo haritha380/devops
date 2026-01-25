@@ -3,7 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+import AdminLogin from './pages/AdminLogin';
+import Instruments from './pages/Instruments';
+import InstrumentParts from './pages/InstrumentParts';
+import Cart from './pages/Cart';
+import Profile from './pages/Profile';
+import AdminInstruments from './pages/AdminInstruments';
+import AdminInstrumentParts from './pages/AdminInstrumentParts';
+import AdminProfile from './pages/AdminProfile';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -16,14 +23,63 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-      <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-      <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+      <Route path="/" element={user ? <Navigate to="/instruments" /> : <Navigate to="/login" />} />
+      <Route path="/login" element={user ? <Navigate to="/instruments" /> : <Login />} />
+      <Route path="/register" element={user ? <Navigate to="/instruments" /> : <Register />} />
+      <Route path="/admin-login" element={user ? <Navigate to="/admin-instruments" /> : <AdminLogin />} />
       <Route
-        path="/dashboard"
+        path="/admin-instruments"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <AdminInstruments />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin-instrument-parts"
+        element={
+          <ProtectedRoute>
+            <AdminInstrumentParts />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin-profile"
+        element={
+          <ProtectedRoute>
+            <AdminProfile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/instruments"
+        element={
+          <ProtectedRoute>
+            <Instruments />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/instrument-parts"
+        element={
+          <ProtectedRoute>
+            <InstrumentParts />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         }
       />
