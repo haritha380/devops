@@ -27,6 +27,41 @@ const InstrumentParts = () => {
     }
   };
 
+  const handleAddToCart = (part) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Please login to add items to cart');
+      return;
+    }
+
+    // Get existing cart from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+    // Check if item already exists
+    const existingItemIndex = cart.findIndex(
+      item => item.itemId === part._id && item.itemType === 'part'
+    );
+
+    if (existingItemIndex > -1) {
+      // Increase quantity if item exists
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      // Add new item
+      cart.push({
+        id: Date.now().toString(),
+        itemType: 'part',
+        itemId: part._id,
+        name: part.name,
+        price: part.price,
+        details: part.details,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Item added to cart!');
+  };
+
   if (loading) {
     return (
       <div className="page-container">
@@ -54,7 +89,12 @@ const InstrumentParts = () => {
                 <h3>{part.name}</h3>
                 <p>{part.details}</p>
                 <p className="price">${part.price.toFixed(2)}</p>
-                <button className="add-to-cart-btn">Add to Cart</button>
+                <button 
+                  className="add-to-cart-btn"
+                  onClick={() => handleAddToCart(part)}
+                >
+                  Add to Cart
+                </button>
               </div>
             ))
           )}
