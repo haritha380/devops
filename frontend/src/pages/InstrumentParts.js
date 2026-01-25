@@ -54,6 +54,7 @@ const InstrumentParts = () => {
         name: part.name,
         price: part.price,
         details: part.details,
+        image: part.image || '',
         quantity: 1
       });
     }
@@ -86,6 +87,11 @@ const InstrumentParts = () => {
           ) : (
             parts.map((part) => (
               <div key={part._id} className="item-card">
+                {part.image && (
+                  <div className="item-image">
+                    <img src={part.image} alt={part.name} />
+                  </div>
+                )}
                 <h3>{part.name}</h3>
                 <p>{part.details}</p>
                 <p className="price">${part.price.toFixed(2)}</p>

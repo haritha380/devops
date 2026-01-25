@@ -26,7 +26,9 @@ exports.getPart = async (req, res) => {
 // Create part
 exports.createPart = async (req, res) => {
   try {
-    const { name, price, details } = req.body;
+    const { name, price, details, image } = req.body;
+    
+    console.log('Received data:', { name, price, details, image });
 
     if (!name || !price || !details) {
       return res.status(400).json({ message: 'Please provide name, price, and details' });
@@ -36,9 +38,11 @@ exports.createPart = async (req, res) => {
       name,
       price,
       details,
+      image: image || '',
     });
 
     const savedPart = await part.save();
+    console.log('Saved part:', savedPart);
     res.status(201).json(savedPart);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -48,7 +52,7 @@ exports.createPart = async (req, res) => {
 // Update part
 exports.updatePart = async (req, res) => {
   try {
-    const { name, price, details } = req.body;
+    const { name, price, details, image } = req.body;
 
     const part = await InstrumentPart.findById(req.params.id);
     if (!part) {
@@ -58,6 +62,7 @@ exports.updatePart = async (req, res) => {
     part.name = name || part.name;
     part.price = price || part.price;
     part.details = details || part.details;
+    part.image = image !== undefined ? image : part.image;
     part.updatedAt = Date.now();
 
     const updatedPart = await part.save();

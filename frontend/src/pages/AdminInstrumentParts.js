@@ -6,7 +6,7 @@ const AdminInstrumentParts = () => {
   const [parts, setParts] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
-  const [formData, setFormData] = useState({ name: '', price: '', details: '' });
+  const [formData, setFormData] = useState({ name: '', price: '', details: '', image: '' });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -36,7 +36,8 @@ const AdminInstrumentParts = () => {
     setFormData({
       name: part.name,
       price: part.price,
-      details: part.details
+      details: part.details,
+      image: part.image || ''
     });
   };
 
@@ -56,7 +57,7 @@ const AdminInstrumentParts = () => {
           item._id === editingId ? updatedPart : item
         ));
         setEditingId(null);
-        setFormData({ name: '', price: '', details: '' });
+        setFormData({ name: '', price: '', details: '', image: '' });
       } else {
         const data = await response.json();
         alert('Error: ' + data.message);
@@ -83,7 +84,7 @@ const AdminInstrumentParts = () => {
         const newPart = await response.json();
         setParts([newPart, ...parts]);
         setShowAddForm(false);
-        setFormData({ name: '', price: '', details: '' });
+        setFormData({ name: '', price: '', details: '', image: '' });
       } else {
         const data = await response.json();
         alert('Error: ' + data.message);
@@ -157,6 +158,12 @@ const AdminInstrumentParts = () => {
                 value={formData.details}
                 onChange={(e) => setFormData({ ...formData, details: e.target.value })}
               />
+              <input
+                type="text"
+                placeholder="Image URL"
+                value={formData.image}
+                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+              />
               <button className="admin-save-btn" onClick={handleAdd}>Add Part</button>
             </div>
           </div>
@@ -184,6 +191,12 @@ const AdminInstrumentParts = () => {
                       value={formData.details}
                       onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                     />
+                    <input
+                      type="text"
+                      placeholder="Image URL"
+                      value={formData.image}
+                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                    />
                     <div className="admin-btn-group">
                       <button className="admin-save-btn" onClick={handleSave}>Save</button>
                       <button className="admin-cancel-btn" onClick={() => setEditingId(null)}>Cancel</button>
@@ -191,9 +204,17 @@ const AdminInstrumentParts = () => {
                   </div>
                 ) : (
                   <>
+                    {part.image && (
+                      <div className="admin-item-image">
+                        <img src={part.image} alt={part.name} />
+                      </div>
+                    )}
                     <h3>{part.name}</h3>
                     <p className="admin-price">${part.price}</p>
                     <p className="admin-details">{part.details}</p>
+                    {part.image && (
+                      <p className="admin-image-url">Image: {part.image.substring(0, 40)}...</p>
+                    )}
                     <div className="admin-btn-group">
                       <button className="admin-edit-btn" onClick={() => handleEdit(part)}>Edit</button>
                       <button className="admin-delete-btn" onClick={() => handleDelete(part._id)}>Delete</button>
