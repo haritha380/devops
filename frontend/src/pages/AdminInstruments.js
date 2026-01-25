@@ -204,9 +204,17 @@ const AdminInstruments = () => {
                   </div>
                 ) : (
                   <>
+                    {instrument.image && (
+                      <div className="admin-item-image">
+                        <img src={instrument.image} alt={instrument.name} />
+                      </div>
+                    )}
                     <h3>{instrument.name}</h3>
                     <p className="admin-price">${instrument.price}</p>
                     <p className="admin-details">{instrument.details}</p>
+                    {instrument.image && (
+                      <p className="admin-image-url">Image: {instrument.image.substring(0, 40)}...</p>
+                    )}
                     <div className="admin-btn-group">
                       <button className="admin-edit-btn" onClick={() => handleEdit(instrument)}>Edit</button>
                       <button className="admin-delete-btn" onClick={() => handleDelete(instrument._id)}>Delete</button>
