@@ -56,6 +56,17 @@ const Cart = () => {
     alert(`Purchase successful!\nTotal: $${total}\nItems: ${itemCount}`);
   };
 
+  const handlePurchaseItem = (item) => {
+    const itemTotal = (item.price * item.quantity).toFixed(2);
+    
+    // Remove item from cart
+    const updatedCart = cartItems.filter(cartItem => cartItem.id !== item.id);
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    
+    alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: $${itemTotal}`);
+  };
+
   const calculateTotal = () => {
     return cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
   };
@@ -101,6 +112,12 @@ const Cart = () => {
             <div className="cart-items">
               {cartItems.map((item) => (
                 <div key={item.id} className="cart-item">
+                  {item.image && (
+                    <div className="cart-item-image">
+                      <img src={item.image} alt={item.name} />
+                    </div>
+                  )}
+                  
                   <div className="cart-item-info">
                     <h3>{item.name}</h3>
                     <p className="cart-item-details">{item.details}</p>
@@ -128,6 +145,12 @@ const Cart = () => {
                         +
                       </button>
                     </div>
+                    <button 
+                      onClick={() => handlePurchaseItem(item)}
+                      className="purchase-item-btn"
+                    >
+                      Purchase
+                    </button>
                     <button 
                       onClick={() => handleDelete(item.id)}
                       className="delete-btn"
