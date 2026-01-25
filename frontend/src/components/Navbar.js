@@ -26,6 +26,17 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <span className="user-name">Hello, {user?.name}</span>
+          <div 
+            className="user-photo-icon" 
+            onClick={() => navigate('/profile')}
+            title="Go to Profile"
+          >
+            {user?.photo ? (
+              <img src={user.photo} alt={user.name} />
+            ) : (
+              <div className="user-avatar">{user?.name?.charAt(0).toUpperCase()}</div>
+            )}
+          </div>
           <button onClick={handleLogout} className="logout-btn">Logout</button>
         </div>
       </div>
