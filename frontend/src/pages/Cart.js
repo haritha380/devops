@@ -10,61 +10,141 @@ const Cart = () => {
     fetchCartItems();
   }, []);
 
-  const fetchCartItems = () => {
+  const fetchCartItems = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
       setLoading(false);
       return;
     }
 
-    // Get cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCartItems(cart);
-    setLoading(false);
+    try {
+      const response = await fetch('/api/cart', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setCartItems(data);
+      } else {
+        console.error('Failed to fetch cart items');
+      }
+    } catch (error) {
+      console.error('Error fetching cart:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleDelete = (itemId) => {
-    const updatedCart = cartItems.filter(item => item.id !== itemId);
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    alert('Item removed from cart');
+  const handleDelete = async (itemId) => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await fetch(`/api/cart/${itemId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        setCartItems(cartItems.filter(item => item._id !== itemId));
+        alert('Item removed from cart');
+      } else {
+        alert('Failed to remove item');
+      }
+    } catch (error) {
+      console.error('Error deleting item:', error);
+      alert('Error removing item');
+    }
   };
 
-  const handleUpdateQuantity = (itemId, newQuantity) => {
+  const handleUpdateQuantity = async (itemId, newQuantity) => {
     if (newQuantity < 1) return;
 
-    const updatedCart = cartItems.map(item => 
-      item.id === itemId ? { ...item, quantity: newQuantity } : item
-    );
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await fetch(`/api/cart/${itemId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ quantity: newQuantity })
+      });
+
+      if (response.ok) {
+        const updatedItem = await response.json();
+        setCartItems(cartItems.map(item => 
+          item._id === itemId ? updatedItem : item
+        ));
+      } else {
+        alert('Failed to update quantity');
+      }
+    } catch (error) {
+      console.error('Error updating quantity:', error);
+      alert('Error updating quantity');
+    }
   };
 
-  const handlePurchase = () => {
+  const handlePurchase = async () => {
     if (cartItems.length === 0) {
       alert('Your cart is empty');
       return;
     }
 
-    const total = calculateTotal();
-    const itemCount = cartItems.length;
-    
-    // Clear cart
-    localStorage.setItem('cart', '[]');
-    setCartItems([]);
-    
-    alert(`Purchase successful!\nTotal: $${total}\nItems: ${itemCount}`);
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await fetch('/api/cart/purchase', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setCartItems([]);
+        alert(`${result.message}\nTotal: $${result.total}\nItems: ${result.itemCount}`);
+      } else {
+        alert('Purchase failed');
+      }
+    } catch (error) {
+      console.error('Error during purchase:', error);
+      alert('Error processing purchase');
+    }
   };
 
-  const handlePurchaseItem = (item) => {
+  const handlePurchaseItem = async (item) => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
     const itemTotal = (item.price * item.quantity).toFixed(2);
     
-    // Remove item from cart
-    const updatedCart = cartItems.filter(cartItem => cartItem.id !== item.id);
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    
-    alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: $${itemTotal}`);
+    try {
+      const response = await fetch(`/api/cart/${item._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        setCartItems(cartItems.filter(cartItem => cartItem._id !== item._id));
+        alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: $${itemTotal}`);
+      } else {
+        alert('Purchase failed');
+      }
+    } catch (error) {
+      console.error('Error during purchase:', error);
+      alert('Error processing purchase');
+    }
   };
 
   const calculateTotal = () => {
@@ -111,12 +191,16 @@ const Cart = () => {
           <div className="cart-container">
             <div className="cart-items">
               {cartItems.map((item) => (
-                <div key={item.id} className="cart-item">
-                  {item.image && (
-                    <div className="cart-item-image">
+                <div key={item._id} className="cart-item">
+                  <div className="cart-item-image">
+                    {item.image ? (
                       <img src={item.image} alt={item.name} />
-                    </div>
-                  )}
+                    ) : (
+                      <div className="placeholder-image">
+                        <span>No Image</span>
+                      </div>
+                    )}
+                  </div>
                   
                   <div className="cart-item-info">
                     <h3>{item.name}</h3>
@@ -132,14 +216,14 @@ const Cart = () => {
                   <div className="cart-item-actions">
                     <div className="quantity-controls">
                       <button 
-                        onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                        onClick={() => handleUpdateQuantity(item._id, item.quantity - 1)}
                         className="qty-btn"
                       >
                         -
                       </button>
                       <span className="quantity-display">{item.quantity}</span>
                       <button 
-                        onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                        onClick={() => handleUpdateQuantity(item._id, item.quantity + 1)}
                         className="qty-btn"
                       >
                         +
@@ -152,7 +236,7 @@ const Cart = () => {
                       Purchase
                     </button>
                     <button 
-                      onClick={() => handleDelete(item.id)}
+                      onClick={() => handleDelete(item._id)}
                       className="delete-btn"
                     >
                       Delete

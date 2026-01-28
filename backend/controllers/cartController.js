@@ -36,7 +36,10 @@ exports.addToCart = async (req, res) => {
       return res.status(401).json({ message: 'Authentication required' });
     }
 
-    const { itemType, itemId, name, price, details } = req.body;
+    const { itemType, itemId, name, price, details, image } = req.body;
+    
+    console.log('Add to cart request body:', req.body);
+    console.log('Image value:', image, 'Type:', typeof image);
 
     if (!itemType || !itemId || !name || !price) {
       return res.status(400).json({ message: 'Missing required fields' });
@@ -47,6 +50,7 @@ exports.addToCart = async (req, res) => {
     if (existingItem) {
       existingItem.quantity += 1;
       await existingItem.save();
+      console.log('Updated existing cart item:', existingItem);
       return res.json(existingItem);
     }
 
@@ -58,10 +62,12 @@ exports.addToCart = async (req, res) => {
       name,
       price,
       details,
+      image,
       quantity: 1,
     });
 
     const savedItem = await cartItem.save();
+    console.log('Created new cart item:', savedItem);
     res.status(201).json(savedItem);
   } catch (error) {
     res.status(500).json({ message: error.message });

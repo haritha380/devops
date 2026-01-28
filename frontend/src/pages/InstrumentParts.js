@@ -27,40 +27,40 @@ const InstrumentParts = () => {
     }
   };
 
-  const handleAddToCart = (part) => {
+  const handleAddToCart = async (part) => {
     const token = localStorage.getItem('token');
     if (!token) {
       alert('Please login to add items to cart');
       return;
     }
 
-    // Get existing cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-    // Check if item already exists
-    const existingItemIndex = cart.findIndex(
-      item => item.itemId === part._id && item.itemType === 'part'
-    );
-
-    if (existingItemIndex > -1) {
-      // Increase quantity if item exists
-      cart[existingItemIndex].quantity += 1;
-    } else {
-      // Add new item
-      cart.push({
-        id: Date.now().toString(),
-        itemType: 'part',
-        itemId: part._id,
-        name: part.name,
-        price: part.price,
-        details: part.details,
-        image: part.image || '',
-        quantity: 1
+    try {
+      const response = await fetch('/api/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          itemType: 'part',
+          itemId: part._id,
+          name: part.name,
+          price: part.price,
+          details: part.details,
+          image: part.image
+        })
       });
-    }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Item added to cart!');
+      if (response.ok) {
+        alert('Item added to cart!');
+      } else {
+        const error = await response.json();
+        alert(error.message || 'Failed to add item to cart');
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Error adding item to cart');
+    }
   };
 
   if (loading) {

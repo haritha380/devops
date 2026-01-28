@@ -27,40 +27,45 @@ const Instruments = () => {
     }
   };
 
-  const handleAddToCart = (instrument) => {
+  const handleAddToCart = async (instrument) => {
     const token = localStorage.getItem('token');
     if (!token) {
       alert('Please login to add items to cart');
       return;
     }
 
-    // Get existing cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-    // Check if item already exists
-    const existingItemIndex = cart.findIndex(
-      item => item.itemId === instrument._id && item.itemType === 'instrument'
-    );
+    console.log('Adding to cart - instrument:', instrument);
+    console.log('Image URL:', instrument.image);
 
-    if (existingItemIndex > -1) {
-      // Increase quantity if item exists
-      cart[existingItemIndex].quantity += 1;
-    } else {
-      // Add new item
-      cart.push({
-        id: Date.now().toString(),
-        itemType: 'instrument',
-        itemId: instrument._id,
-        name: instrument.name,
-        price: instrument.price,
-        details: instrument.details,
-        image: instrument.image || '',
-        quantity: 1
+    try {
+      const response = await fetch('/api/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          itemType: 'instrument',
+          itemId: instrument._id,
+          name: instrument.name,
+          price: instrument.price,
+          details: instrument.details,
+          image: instrument.image
+        })
       });
-    }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Item added to cart!');
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Cart item created:', result);
+        alert('Item added to cart!');
+      } else {
+        const error = await response.json();
+        alert(error.message || 'Failed to add item to cart');
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Error adding item to cart');
+    }
   };
 
   if (loading) {
