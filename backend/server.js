@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const instrumentRoutes = require('./routes/instruments');
 const instrumentPartRoutes = require('./routes/instrumentParts');
 const cartRoutes = require('./routes/cart');
+const statsRoutes = require('./routes/stats');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -57,6 +58,7 @@ app.post('/api/create-admin', async (req, res) => {
 app.use('/api/instruments', instrumentRoutes);
 app.use('/api/instrument-parts', instrumentPartRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/stats', statsRoutes);
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {

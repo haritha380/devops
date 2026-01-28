@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminNavbar from '../components/AdminNavbar';
 import { useAuth } from '../context/AuthContext';
 import './AdminPages.css';
@@ -6,12 +6,44 @@ import './AdminPages.css';
 const AdminProfile = () => {
   const { user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
+  const [stats, setStats] = useState({
+    totalInstruments: 0,
+    totalParts: 0,
+    totalUsers: 0,
+    activeUsers: 0,
+    totalCartItems: 0
+  });
+  const [loadingStats, setLoadingStats] = useState(true);
   const [profileData, setProfileData] = useState({
     name: user?.name || 'Admin User',
     email: user?.email || 'bandaraindika@gmail.com',
     phone: '+94 77 123 4567',
     address: 'Colombo, Sri Lanka'
   });
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch('/api/stats/admin', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setStats(data);
+      }
+    } catch (error) {
+      console.error('Error fetching stats:', error);
+    } finally {
+      setLoadingStats(false);
+    }
+  };
 
   const handleSave = () => {
     // Here you would typically make an API call to update the profile
@@ -111,20 +143,24 @@ const AdminProfile = () => {
 
           <div className="admin-profile-section">
             <h3>Account Statistics</h3>
-            <div className="admin-stats-grid">
-              <div className="admin-stat-card">
-                <h4>Total Instruments</h4>
-                <p className="admin-stat-value">24</p>
+            {loadingStats ? (
+              <p>Loading statistics...</p>
+            ) : (
+              <div className="admin-stats-grid">
+                <div className="admin-stat-card">
+                  <h4>Total Instruments</h4>
+                  <p className="admin-stat-value">{stats.totalInstruments}</p>
+                </div>
+                <div className="admin-stat-card">
+                  <h4>Total Parts</h4>
+                  <p className="admin-stat-value">{stats.totalParts}</p>
+                </div>
+                <div className="admin-stat-card">
+                  <h4>Total Users</h4>
+                  <p className="admin-stat-value">{stats.totalUsers}</p>
+                </div>
               </div>
-              <div className="admin-stat-card">
-                <h4>Total Parts</h4>
-                <p className="admin-stat-value">48</p>
-              </div>
-              <div className="admin-stat-card">
-                <h4>Active Users</h4>
-                <p className="admin-stat-value">156</p>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
