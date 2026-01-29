@@ -9,37 +9,47 @@ export const AuthProvider = ({ children }) => {
 
   // Load token from localStorage on mount
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
-    if (savedToken) {
-      setToken(savedToken);
-      fetchCurrentUser(savedToken);
+    const storedToken = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
+    
+    if (storedToken && storedUser) {
+      setToken(storedToken);
+      const parsedUser = JSON.parse(storedUser);
+      
+      // Check if it's an admin by role
+      if (parsedUser.role === 'admin') {
+        // For admin, load from localStorage (already authenticated)
+        setUser(parsedUser);
+        setLoading(false);
+      } else {
+        // For regular users, verify with backend
+        fetch('/api/auth/me', {
+          headers: {
+            'Authorization': `Bearer ${storedToken}`
+          }
+        })
+          .then(res => {
+            if (res.ok) {
+              return res.json();
+            }
+            throw new Error('Token invalid');
+          })
+          .then(data => {
+            setUser(data);
+            setLoading(false);
+          })
+          .catch(() => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setToken(null);
+            setUser(null);
+            setLoading(false);
+          });
+      }
     } else {
       setLoading(false);
     }
   }, []);
-
-  const fetchCurrentUser = async (authToken) => {
-    try {
-      const response = await fetch('/api/auth/me', {
-        headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
-      });
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-      } else {
-        localStorage.removeItem('token');
-        setToken(null);
-      }
-    } catch (error) {
-      console.error('Error fetching user:', error);
-      localStorage.removeItem('token');
-      setToken(null);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const register = async (name, email, password, confirmPassword) => {
     try {
@@ -100,7 +110,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, register, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, register, login, logout, setUser, setToken }}>
       {children}
     </AuthContext.Provider>
   );

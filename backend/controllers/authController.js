@@ -141,6 +141,27 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
+// Protect middleware
+exports.protect = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+    
+    if (!token) {
+      return res.status(401).json({ message: 'No token, authorization denied' });
+    }
+
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
+      req.user = { id: decoded.id, role: decoded.role };
+      next();
+    } catch (err) {
+      return res.status(401).json({ message: 'Token is not valid' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.changePassword = async (req, res) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');

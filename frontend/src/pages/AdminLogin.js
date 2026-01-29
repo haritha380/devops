@@ -4,48 +4,54 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const AdminLogin = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { setUser, setToken } = useAuth();
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
+    
+    try {
+      console.log('Attempting admin login...');
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    // Admin credentials validation
-    const ADMIN_EMAIL = 'bandaraindika@gmail.com';
-    const ADMIN_PASSWORD = 'Haritha@2001';
+      console.log('Response status:', response.status);
+      const data = await response.json();
+      console.log('Response data:', data);
 
-    if (formData.email !== ADMIN_EMAIL || formData.password !== ADMIN_PASSWORD) {
-      setError('Invalid admin credentials');
+      if (response.ok) {
+        // Store in localStorage
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
+        
+        // Set in AuthContext
+        setUser(data.user);
+        setToken(data.token);
+        
+        console.log('Login successful, navigating...');
+        // Navigate to admin dashboard
+        navigate('/admin-instruments');
+      } else {
+        console.error('Login failed:', data.message);
+        setError(data.message || 'Invalid admin credentials');
+      }
+    } catch (error) {
+      console.error('Admin login error:', error);
+      setError('Login failed. Please try again.');
+    } finally {
       setLoading(false);
-      return;
     }
-
-    // If credentials are correct, log in as admin
-    const result = await login(formData.email, formData.password);
-
-    if (result.success) {
-      navigate('/admin-instruments');
-    } else {
-      setError('Admin login failed. Please ensure admin account exists.');
-    }
-
-    setLoading(false);
   };
 
   return (
@@ -59,9 +65,8 @@ const AdminLogin = () => {
             <label>Admin Email</label>
             <input
               type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="admin@example.com"
             />
@@ -70,9 +75,8 @@ const AdminLogin = () => {
             <label>Admin Password</label>
             <input
               type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter admin password"
             />

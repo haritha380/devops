@@ -18,12 +18,42 @@ const AdminProfile = () => {
     name: user?.name || 'Admin User',
     email: user?.email || 'bandaraindika@gmail.com',
     phone: '+94 77 123 4567',
-    address: 'Colombo, Sri Lanka'
+    address: 'Colombo, Sri Lanka',
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: ''
   });
 
   useEffect(() => {
     fetchStats();
+    fetchProfile();
   }, []);
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch('/api/admin/profile', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setProfileData({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || '+94 77 123 4567',
+          address: data.address || 'Colombo, Sri Lanka',
+          currentPassword: '',
+          newPassword: '',
+          confirmPassword: ''
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    }
+  };
 
   const fetchStats = async () => {
     try {
@@ -45,10 +75,74 @@ const AdminProfile = () => {
     }
   };
 
-  const handleSave = () => {
-    // Here you would typically make an API call to update the profile
-    setIsEditing(false);
-    alert('Profile updated successfully!');
+  const handleSave = async () => {
+    // Validate password if changing
+    if (profileData.newPassword) {
+      if (profileData.newPassword !== profileData.confirmPassword) {
+        alert('New passwords do not match!');
+        return;
+      }
+      if (profileData.newPassword.length < 6) {
+        alert('Password must be at least 6 characters long!');
+        return;
+      }
+      if (!profileData.currentPassword) {
+        alert('Please enter your current password to change it!');
+        return;
+      }
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      const updateData = {
+        name: profileData.name,
+        email: profileData.email,
+        phone: profileData.phone,
+        address: profileData.address
+      };
+
+      // Add password fields if changing password
+      if (profileData.newPassword) {
+        updateData.currentPassword = profileData.currentPassword;
+        updateData.newPassword = profileData.newPassword;
+      }
+
+      // Update admin profile in database
+      const response = await fetch('/api/admin/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(updateData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Update localStorage with new data
+        localStorage.setItem('user', JSON.stringify(data.user));
+        
+        // Update profile data display
+        setProfileData({
+          name: data.user.name,
+          email: data.user.email,
+          phone: data.user.phone || '+94 77 123 4567',
+          address: data.user.address || 'Colombo, Sri Lanka',
+          currentPassword: '',
+          newPassword: '',
+          confirmPassword: ''
+        });
+
+        setIsEditing(false);
+        alert(data.message || 'Profile updated successfully!');
+      } else {
+        alert(data.message || 'Failed to update profile');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      alert('Failed to update profile. Please try again.');
+    }
   };
 
   return (
@@ -103,6 +197,36 @@ const AdminProfile = () => {
                     onChange={(e) => setProfileData({ ...profileData, address: e.target.value })}
                   />
                 </div>
+                
+                <h4 style={{ marginTop: '20px', marginBottom: '10px' }}>Change Password (Optional)</h4>
+                <div className="form-group">
+                  <label>Current Password</label>
+                  <input
+                    type="password"
+                    value={profileData.currentPassword}
+                    onChange={(e) => setProfileData({ ...profileData, currentPassword: e.target.value })}
+                    placeholder="Enter current password"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>New Password</label>
+                  <input
+                    type="password"
+                    value={profileData.newPassword}
+                    onChange={(e) => setProfileData({ ...profileData, newPassword: e.target.value })}
+                    placeholder="Enter new password"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Confirm New Password</label>
+                  <input
+                    type="password"
+                    value={profileData.confirmPassword}
+                    onChange={(e) => setProfileData({ ...profileData, confirmPassword: e.target.value })}
+                    placeholder="Confirm new password"
+                  />
+                </div>
+                
                 <div className="admin-btn-group">
                   <button className="admin-save-btn" onClick={handleSave}>Save Changes</button>
                   <button className="admin-cancel-btn" onClick={() => setIsEditing(false)}>Cancel</button>
@@ -133,12 +257,6 @@ const AdminProfile = () => {
                 </button>
               </>
             )}
-          </div>
-
-          <div className="admin-profile-section">
-            <h3>Security Settings</h3>
-            <button className="admin-secondary-btn">Change Password</button>
-            <button className="admin-secondary-btn">Enable Two-Factor Authentication</button>
           </div>
 
           <div className="admin-profile-section">
