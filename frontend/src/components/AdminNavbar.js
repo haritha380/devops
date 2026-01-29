@@ -16,7 +16,7 @@ const AdminNavbar = () => {
     <nav className="admin-navbar">
       <div className="admin-navbar-content">
         <div className="admin-navbar-left">
-          <h1 className="admin-navbar-brand">Admin Dashboard</h1>
+          <h1 className="admin-navbar-brand">Musicstore.lk - Admin</h1>
           <div className="admin-navbar-links">
             <Link to="/admin-instruments" className="admin-nav-link">Instruments</Link>
             <Link to="/admin-instrument-parts" className="admin-nav-link">Instrument Parts</Link>

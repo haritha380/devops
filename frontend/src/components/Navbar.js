@@ -82,7 +82,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-content">
         <div className="navbar-left">
-          <h1 className="navbar-brand">Music Store</h1>
+          <h1 className="navbar-brand">Musicstore.lk</h1>
           <div className="navbar-links">
             <Link to="/instruments" className="nav-link">Instruments</Link>
             <Link to="/instrument-parts" className="nav-link">Instrument Parts</Link>
