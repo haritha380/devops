@@ -92,15 +92,20 @@ const Cart = () => {
   };
 
   const handlePurchase = async () => {
+    console.log('=== CART PURCHASE BUTTON CLICKED ===');
+    console.log('Cart items:', cartItems.length);
+    
     if (cartItems.length === 0) {
       alert('Your cart is empty');
       return;
     }
 
     const token = localStorage.getItem('token');
+    console.log('Token exists:', !!token);
     if (!token) return;
 
     try {
+      console.log('Calling /api/cart/purchase...');
       const response = await fetch('/api/cart/purchase', {
         method: 'POST',
         headers: {
@@ -108,11 +113,15 @@ const Cart = () => {
         }
       });
 
+      console.log('Response status:', response.status);
       if (response.ok) {
         const result = await response.json();
+        console.log('Purchase result:', result);
         setCartItems([]);
         alert(`${result.message}\nTotal: $${result.total}\nItems: ${result.itemCount}`);
       } else {
+        const error = await response.text();
+        console.error('Purchase failed:', error);
         alert('Purchase failed');
       }
     } catch (error) {
@@ -128,14 +137,42 @@ const Cart = () => {
     const itemTotal = (item.price * item.quantity).toFixed(2);
     
     try {
-      const response = await fetch(`/api/cart/${item._id}`, {
+      // Create purchase record
+      const purchaseResponse = await fetch('/api/purchases', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          items: [{
+            itemType: item.itemType,
+            itemId: item.itemId,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            details: item.details,
+            image: item.image
+          }],
+          totalAmount: parseFloat(itemTotal),
+          purchaseType: 'cart'
+        })
+      });
+
+      if (!purchaseResponse.ok) {
+        alert('Failed to record purchase');
+        return;
+      }
+
+      // Delete item from cart
+      const deleteResponse = await fetch(`/api/cart/${item._id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
 
-      if (response.ok) {
+      if (deleteResponse.ok) {
         setCartItems(cartItems.filter(cartItem => cartItem._id !== item._id));
         alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: $${itemTotal}`);
       } else {

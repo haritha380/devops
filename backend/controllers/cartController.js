@@ -1,4 +1,5 @@
 const CartItem = require('../models/CartItem');
+const Purchase = require('../models/Purchase');
 const jwt = require('jsonwebtoken');
 
 // Get user from token
@@ -131,22 +132,27 @@ exports.updateQuantity = async (req, res) => {
 
 // Purchase (clear cart)
 exports.purchaseCart = async (req, res) => {
+  console.log('=== PURCHASE CART ENDPOINT HIT ===');
   try {
     const userId = getUserFromToken(req);
+    console.log('User ID:', userId);
     if (!userId) {
       return res.status(401).json({ message: 'Authentication required' });
     }
 
     const cartItems = await CartItem.find({ user: userId });
+    console.log('Cart items found:', cartItems.length);
     
     if (cartItems.length === 0) {
+      console.log('Cart is empty, returning error');
       return res.status(400).json({ message: 'Cart is empty' });
     }
 
     const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    console.log('Total amount:', total);
 
     // Create purchase record
-    const Purchase = require('../models/Purchase');
+    console.log('Creating Purchase record...');
     const purchase = new Purchase({
       user: userId,
       items: cartItems.map(item => ({
@@ -164,6 +170,7 @@ exports.purchaseCart = async (req, res) => {
     });
 
     await purchase.save();
+    console.log('Purchase saved to database:', purchase._id);
 
     // Clear the cart
     await CartItem.deleteMany({ user: userId });
