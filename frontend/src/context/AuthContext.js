@@ -14,37 +14,50 @@ export const AuthProvider = ({ children }) => {
     
     if (storedToken && storedUser) {
       setToken(storedToken);
-      const parsedUser = JSON.parse(storedUser);
       
-      // Check if it's an admin by role
-      if (parsedUser.role === 'admin') {
-        // For admin, load from localStorage (already authenticated)
-        setUser(parsedUser);
-        setLoading(false);
-      } else {
-        // For regular users, verify with backend
-        fetch('/api/auth/me', {
-          headers: {
-            'Authorization': `Bearer ${storedToken}`
-          }
-        })
-          .then(res => {
-            if (res.ok) {
-              return res.json();
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        
+        // Check if it's an admin by role
+        if (parsedUser.role === 'admin') {
+          // For admin, load from localStorage (already authenticated)
+          setUser(parsedUser);
+          setLoading(false);
+        } else {
+          // For regular users, always verify with backend to get fresh data
+          fetch('/api/auth/me', {
+            headers: {
+              'Authorization': `Bearer ${storedToken}`
             }
-            throw new Error('Token invalid');
           })
-          .then(data => {
-            setUser(data);
-            setLoading(false);
-          })
-          .catch(() => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            setToken(null);
-            setUser(null);
-            setLoading(false);
-          });
+            .then(res => {
+              if (res.ok) {
+                return res.json();
+              }
+              throw new Error('Token invalid');
+            })
+            .then(data => {
+              // Update localStorage with fresh user data from backend
+              localStorage.setItem('user', JSON.stringify(data));
+              setUser(data);
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.error('Auth error:', error);
+              localStorage.removeItem('token');
+              localStorage.removeItem('user');
+              setToken(null);
+              setUser(null);
+              setLoading(false);
+            });
+        }
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setToken(null);
+        setUser(null);
+        setLoading(false);
       }
     } else {
       setLoading(false);
@@ -94,6 +107,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
       setToken(data.token);
       setUser(data.user);
 
@@ -105,6 +119,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setToken(null);
     setUser(null);
   };

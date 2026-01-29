@@ -68,6 +68,54 @@ const Instruments = () => {
     }
   };
 
+  const handlePurchase = async (instrument) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Please login to purchase items');
+      return;
+    }
+
+    const confirmPurchase = window.confirm(
+      `Purchase ${instrument.name} for $${instrument.price.toFixed(2)}?`
+    );
+
+    if (confirmPurchase) {
+      try {
+        // Record purchase in database
+        const response = await fetch('/api/purchases', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            items: [{
+              itemType: 'instrument',
+              itemId: instrument._id,
+              name: instrument.name,
+              price: instrument.price,
+              quantity: 1,
+              details: instrument.details,
+              image: instrument.image
+            }],
+            totalAmount: instrument.price,
+            purchaseType: 'direct'
+          })
+        });
+
+        if (response.ok) {
+          alert(`Successfully purchased ${instrument.name}! Thank you for your order.`);
+        } else {
+          const error = await response.json();
+          alert(error.message || 'Failed to process purchase');
+        }
+      } catch (error) {
+        console.error('Error processing purchase:', error);
+        alert('Error processing purchase. Please try again.');
+      }
+    }
+  };
+
   if (loading) {
     return (
       <div className="page-container">
@@ -100,12 +148,20 @@ const Instruments = () => {
                 <h3>{instrument.name}</h3>
                 <p>{instrument.details}</p>
                 <p className="price">${instrument.price.toFixed(2)}</p>
-                <button 
-                  className="add-to-cart-btn"
-                  onClick={() => handleAddToCart(instrument)}
-                >
-                  Add to Cart
-                </button>
+                <div className="item-buttons">
+                  <button 
+                    className="add-to-cart-btn"
+                    onClick={() => handleAddToCart(instrument)}
+                  >
+                    Add to Cart
+                  </button>
+                  <button 
+                    className="purchase-btn"
+                    onClick={() => handlePurchase(instrument)}
+                  >
+                    Purchase Now
+                  </button>
+                </div>
               </div>
             ))
           )}

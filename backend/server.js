@@ -9,6 +9,7 @@ const instrumentPartRoutes = require('./routes/instrumentParts');
 const cartRoutes = require('./routes/cart');
 const statsRoutes = require('./routes/stats');
 const adminRoutes = require('./routes/admin');
+const purchaseRoutes = require('./routes/purchases');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -61,6 +62,7 @@ app.use('/api/instrument-parts', instrumentPartRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/purchases', purchaseRoutes);
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {

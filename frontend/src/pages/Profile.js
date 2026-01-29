@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { useAuth } from '../context/AuthContext';
 import './Pages.css';
@@ -8,9 +8,9 @@ const Profile = () => {
   const [editMode, setEditMode] = useState(false);
   const [changePasswordMode, setChangePasswordMode] = useState(false);
   const [formData, setFormData] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
-    photo: user?.photo || '',
+    name: '',
+    email: '',
+    photo: '',
   });
   const [passwordData, setPasswordData] = useState({
     currentPassword: '',
@@ -19,6 +19,17 @@ const Profile = () => {
   });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+
+  // Update form data when user data becomes available
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        name: user.name || '',
+        email: user.email || '',
+        photo: user.photo || '',
+      });
+    }
+  }, [user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

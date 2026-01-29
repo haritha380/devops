@@ -138,7 +138,32 @@ exports.purchaseCart = async (req, res) => {
     }
 
     const cartItems = await CartItem.find({ user: userId });
+    
+    if (cartItems.length === 0) {
+      return res.status(400).json({ message: 'Cart is empty' });
+    }
+
     const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    // Create purchase record
+    const Purchase = require('../models/Purchase');
+    const purchase = new Purchase({
+      user: userId,
+      items: cartItems.map(item => ({
+        itemType: item.itemType,
+        itemId: item.itemId,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        details: item.details,
+        image: item.image
+      })),
+      totalAmount: total,
+      purchaseType: 'cart',
+      status: 'completed'
+    });
+
+    await purchase.save();
 
     // Clear the cart
     await CartItem.deleteMany({ user: userId });
@@ -146,9 +171,11 @@ exports.purchaseCart = async (req, res) => {
     res.json({ 
       message: 'Purchase successful!', 
       itemCount: cartItems.length,
-      total: total.toFixed(2)
+      total: total.toFixed(2),
+      purchaseId: purchase._id
     });
   } catch (error) {
+    console.error('Error purchasing cart:', error);
     res.status(500).json({ message: error.message });
   }
 };
