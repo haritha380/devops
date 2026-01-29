@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
@@ -8,6 +9,7 @@ import Instruments from './pages/Instruments';
 import InstrumentParts from './pages/InstrumentParts';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import Checkout from './pages/Checkout';
 import AdminInstruments from './pages/AdminInstruments';
 import AdminInstrumentParts from './pages/AdminInstrumentParts';
 import AdminProfile from './pages/AdminProfile';
@@ -23,7 +25,7 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={user ? <Navigate to="/instruments" /> : <Navigate to="/login" />} />
+      <Route path="/" element={user ? <Navigate to="/instruments" /> : <Landing />} />
       <Route path="/login" element={user ? <Navigate to="/instruments" /> : <Login />} />
       <Route path="/register" element={user ? <Navigate to="/instruments" /> : <Register />} />
       <Route path="/admin-login" element={user ? <Navigate to="/admin-instruments" /> : <AdminLogin />} />
