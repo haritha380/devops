@@ -36,6 +36,7 @@ exports.loginAdmin = async (req, res) => {
         email: admin.email,
         phone: admin.phone,
         address: admin.address,
+        profilePhoto: admin.profilePhoto,
         role: admin.role
       }
     });
@@ -62,7 +63,7 @@ exports.getAdminProfile = async (req, res) => {
 // Update admin profile
 exports.updateAdminProfile = async (req, res) => {
   try {
-    const { name, email, phone, address, currentPassword, newPassword } = req.body;
+    const { name, email, phone, address, profilePhoto, currentPassword, newPassword } = req.body;
 
     const admin = await Admin.findById(req.user.id);
     if (!admin) {
@@ -92,6 +93,7 @@ exports.updateAdminProfile = async (req, res) => {
     if (email) admin.email = email;
     if (phone !== undefined) admin.phone = phone;
     if (address !== undefined) admin.address = address;
+    if (profilePhoto !== undefined) admin.profilePhoto = profilePhoto;
 
     await admin.save();
 
@@ -103,6 +105,7 @@ exports.updateAdminProfile = async (req, res) => {
         email: admin.email,
         phone: admin.phone,
         address: admin.address,
+        profilePhoto: admin.profilePhoto,
         role: admin.role
       }
     });

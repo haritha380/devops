@@ -19,6 +19,7 @@ const AdminProfile = () => {
     email: user?.email || 'bandaraindika@gmail.com',
     phone: '+94 77 123 4567',
     address: 'Colombo, Sri Lanka',
+    profilePhoto: '',
     currentPassword: '',
     newPassword: '',
     confirmPassword: ''
@@ -45,6 +46,7 @@ const AdminProfile = () => {
           email: data.email,
           phone: data.phone || '+94 77 123 4567',
           address: data.address || 'Colombo, Sri Lanka',
+          profilePhoto: data.profilePhoto || '',
           currentPassword: '',
           newPassword: '',
           confirmPassword: ''
@@ -98,7 +100,8 @@ const AdminProfile = () => {
         name: profileData.name,
         email: profileData.email,
         phone: profileData.phone,
-        address: profileData.address
+        address: profileData.address,
+        profilePhoto: profileData.profilePhoto
       };
 
       // Add password fields if changing password
@@ -129,6 +132,7 @@ const AdminProfile = () => {
           email: data.user.email,
           phone: data.user.phone || '+94 77 123 4567',
           address: data.user.address || 'Colombo, Sri Lanka',
+          profilePhoto: data.user.profilePhoto || '',
           currentPassword: '',
           newPassword: '',
           confirmPassword: ''
@@ -145,6 +149,22 @@ const AdminProfile = () => {
     }
   };
 
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 5000000) { // 5MB limit
+        alert('File size should be less than 5MB');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileData({ ...profileData, profilePhoto: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="admin-page-container">
       <AdminNavbar />
@@ -153,7 +173,11 @@ const AdminProfile = () => {
         <div className="admin-profile-card">
           <div className="admin-profile-header">
             <div className="admin-profile-avatar">
-              <span>{profileData.name.charAt(0)}</span>
+              {profileData.profilePhoto ? (
+                <img src={profileData.profilePhoto} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              ) : (
+                <span>{profileData.name.charAt(0)}</span>
+              )}
             </div>
             <div>
               <h2>{profileData.name}</h2>
@@ -165,6 +189,24 @@ const AdminProfile = () => {
             <h3>Personal Information</h3>
             {isEditing ? (
               <div className="admin-form">
+                <div className="form-group">
+                  <label>Profile Photo</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoChange}
+                    style={{ marginBottom: '10px' }}
+                  />
+                  {profileData.profilePhoto && (
+                    <div style={{ marginTop: '10px' }}>
+                      <img 
+                        src={profileData.profilePhoto} 
+                        alt="Preview" 
+                        style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '50%', border: '2px solid #ddd' }} 
+                      />
+                    </div>
+                  )}
+                </div>
                 <div className="form-group">
                   <label>Name</label>
                   <input
