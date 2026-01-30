@@ -31,6 +31,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Backend setup') {
+            steps {
+                script {
+                    // Build frontend docker image using multi-stage Dockerfile
+                    sh "cp /var/lib/jenkins/.backend-env /var/lib/jenkins/workspace/Musical-Instrument-Seller/backend/.env"
+                }
+            }
+        }
 
         stage('Build Frontend Image') {
             steps {
@@ -50,6 +59,15 @@ pipeline {
                         sh "docker push ${BACKEND_IMAGE}:latest"
                         sh "docker push ${FRONTEND_IMAGE}:latest"
                     }
+                }
+            }
+        }
+        
+        stage('Up the containers') {
+            steps {
+                script {
+                    // Build frontend docker image using multi-stage Dockerfile
+                    sh "docker compose up -d --build"
                 }
             }
         }
