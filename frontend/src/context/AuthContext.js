@@ -18,13 +18,14 @@ export const AuthProvider = ({ children }) => {
       try {
         const parsedUser = JSON.parse(storedUser);
         
+        // Set user immediately from localStorage to avoid blank screen
+        setUser(parsedUser);
+        
         // Check if it's an admin by role
         if (parsedUser.role === 'admin') {
-          // For admin, load from localStorage (already authenticated)
-          setUser(parsedUser);
           setLoading(false);
         } else {
-          // For regular users, always verify with backend to get fresh data
+          // For regular users, verify token and fetch fresh data in background
           fetch('/api/auth/me', {
             headers: {
               'Authorization': `Bearer ${storedToken}`
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
               throw new Error('Token invalid');
             })
             .then(data => {
-              // Update localStorage with fresh user data from backend
+              // Update with fresh data from backend
               localStorage.setItem('user', JSON.stringify(data));
               setUser(data);
               setLoading(false);
