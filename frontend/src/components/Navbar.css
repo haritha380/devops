@@ -206,6 +206,8 @@
   max-height: 70vh;
   overflow: hidden;
   animation: slideDown 0.3s ease;
+  position: relative;
+  z-index: 3001;
 }
 
 @keyframes slideDown {
