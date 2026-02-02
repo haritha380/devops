@@ -183,13 +183,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 100px;
   z-index: 3000;
   animation: fadeIn 0.3s ease;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {
@@ -208,6 +209,7 @@
   animation: slideDown 0.3s ease;
   position: relative;
   z-index: 3001;
+  pointer-events: auto;
 }
 
 @keyframes slideDown {
