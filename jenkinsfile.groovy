@@ -5,18 +5,32 @@ pipeline {
         FRONTEND_IMAGE = "harithabandara/frontend-app"
         BACKEND_IMAGE = "harithabandara/backend-app"
         GIT_REPO = "https://github.com/haritha380/devops.git"
-        // Docker Hub credentials id (configure in Jenkins credentials)
         DOCKER_CREDENTIALS_ID = 'harithabandara'
     }
 
     options {
         timestamps()
         ansiColor('xterm')
-        // keep build logs for 30 days
-        buildDiscarder(logRotator(daysToKeepStr: '30'))
+        buildDiscarder(logRotator(daysToKeepStr: '7', numToKeepStr: '5'))
     }
 
     stages {
+        // ADDED: Stop existing containers and clean Docker cache/images before building
+        stage('Cleanup Environment') {
+            steps {
+                script {
+                    echo 'Stopping existing containers and cleaning cache...'
+                    // Stop containers if they are running (ignore error if they aren't)
+                    sh 'docker stop backend-app frontend-app || true'
+                    sh 'docker rm backend-app frontend-app || true'
+                    
+                    // Delete build cache and dangling images to free up space
+                    sh 'docker builder prune -f'
+                    sh 'docker image prune -f'
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'refs/heads/main']], userRemoteConfigs: [[url: env.GIT_REPO]]])
@@ -26,8 +40,8 @@ pipeline {
         stage('Build Backend Image') {
             steps {
                 script {
-                    // Build backend docker image using backend/Dockerfile
-                    sh "docker build -t ${BACKEND_IMAGE}:latest -f backend/Dockerfile backend"
+                    // Build with --no-cache to ensure a fresh build as requested
+                    sh "docker build --no-cache -t ${BACKEND_IMAGE}:latest -f backend/Dockerfile backend"
                 }
             }
         }
@@ -35,7 +49,6 @@ pipeline {
         stage('Backend setup') {
             steps {
                 script {
-                    // Build frontend docker image using multi-stage Dockerfile
                     sh "cp /var/lib/jenkins/.backend-env /var/lib/jenkins/workspace/Musical-Instrument-Seller/backend/.env"
                 }
             }
@@ -44,8 +57,7 @@ pipeline {
         stage('Build Frontend Image') {
             steps {
                 script {
-                    // Build frontend docker image using multi-stage Dockerfile
-                    sh "docker build -t ${FRONTEND_IMAGE}:latest -f frontend/Dockerfile frontend"
+                    sh "docker build --no-cache -t ${FRONTEND_IMAGE}:latest -f frontend/Dockerfile frontend"
                 }
             }
         }
@@ -63,12 +75,11 @@ pipeline {
             }
         }
         
-        stage('Up the containers') {
+        stage('Deploy Docker Compose') {
             steps {
-                script {
-                    // Build frontend docker image using multi-stage Dockerfile
-                    sh "docker compose up -d --build"
-                }
+                sh """
+                ssh 13.126.171.198 'docker-compose up -d --pull always'
+                """
             }
         }
     }
@@ -76,8 +87,10 @@ pipeline {
     post {
         always {
             script {
-                // Best-effort logout and cleanup
                 sh 'docker logout || true'
+                // Final prune to remove intermediate layers used during the build
+                sh 'docker system prune -f'
+                cleanWs()
             }
         }
 
