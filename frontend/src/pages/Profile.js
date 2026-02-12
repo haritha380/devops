@@ -7,6 +7,7 @@ const Profile = () => {
   const { user, token } = useAuth();
   const [editMode, setEditMode] = useState(false);
   const [changePasswordMode, setChangePasswordMode] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -39,6 +40,33 @@ const Profile = () => {
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;
     setPasswordData({ ...passwordData, [name]: value });
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formDataUpload = new FormData();
+    formDataUpload.append('photo', file);
+
+    try {
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formDataUpload,
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setFormData({ ...formData, photo: data.url });
+      } else {
+        setError(data.message || 'Failed to upload image');
+      }
+    } catch (err) {
+      setError('Error uploading image: ' + err.message);
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleUpdateProfile = async (e) => {
@@ -144,7 +172,7 @@ const Profile = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Photo URL</label>
+                <label>Photo URL (or upload below)</label>
                 <input
                   type="text"
                   name="photo"
@@ -152,6 +180,16 @@ const Profile = () => {
                   onChange={handleInputChange}
                   placeholder="Enter photo URL"
                 />
+              </div>
+              <div className="form-group">
+                <label>Or Upload Photo from Desktop</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileUpload}
+                  disabled={uploading}
+                />
+                {uploading && <p style={{ color: '#666', fontSize: '0.9rem' }}>Uploading...</p>}
               </div>
               {formData.photo && (
                 <div className="photo-preview">
