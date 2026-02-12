@@ -210,7 +210,7 @@ const AdminInstruments = () => {
                       </div>
                     )}
                     <h3>{instrument.name}</h3>
-                    <p className="admin-price">${instrument.price}</p>
+                    <p className="admin-price">Rs. {instrument.price}</p>
                     <p className="admin-details">{instrument.details}</p>
                     {instrument.image && (
                       <p className="admin-image-url">Image: {instrument.image.substring(0, 40)}...</p>

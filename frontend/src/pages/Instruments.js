@@ -76,7 +76,7 @@ const Instruments = () => {
     }
 
     const confirmPurchase = window.confirm(
-      `Purchase ${instrument.name} for $${instrument.price.toFixed(2)}?`
+      `Purchase ${instrument.name} for Rs. ${instrument.price.toFixed(2)}?`
     );
 
     if (confirmPurchase) {
@@ -147,7 +147,7 @@ const Instruments = () => {
                 )}
                 <h3>{instrument.name}</h3>
                 <p>{instrument.details}</p>
-                <p className="price">${instrument.price.toFixed(2)}</p>
+                <p className="price">Rs. {instrument.price.toFixed(2)}</p>
                 <div className="item-buttons">
                   <button 
                     className="add-to-cart-btn"

@@ -146,7 +146,7 @@ const Navbar = () => {
                     <h4>{item.name}</h4>
                     <p className="search-item-type">{item.type === 'instrument' ? 'Instrument' : 'Instrument Part'}</p>
                     <p className="search-item-details">{item.details}</p>
-                    <p className="search-item-price">${item.price}</p>
+                    <p className="search-item-price">Rs. {item.price}</p>
                   </div>
                 </div>
               ))}

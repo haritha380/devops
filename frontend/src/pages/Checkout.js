@@ -69,7 +69,7 @@ const Checkout = () => {
         }
       }
 
-      alert(`Purchase successful!\nPayment Method: ${paymentMethod === 'card' ? 'Card Payment' : 'Cash on Delivery'}\nTotal: $${totalAmount}`);
+      alert(`Purchase successful!\nPayment Method: ${paymentMethod === 'card' ? 'Card Payment' : 'Cash on Delivery'}\nTotal: Rs. ${totalAmount}`);
       navigate('/instruments');
     } catch (error) {
       console.error('Error during purchase:', error);
@@ -102,15 +102,15 @@ const Checkout = () => {
                     <div>
                       <h3>{item.name}</h3>
                       <p>Quantity: {item.quantity}</p>
-                      <p>Price: ${item.price}</p>
-                      <p><strong>Subtotal: ${(item.price * item.quantity).toFixed(2)}</strong></p>
+                      <p>Price: Rs. {item.price}</p>
+                      <p><strong>Subtotal: Rs. {(item.price * item.quantity).toFixed(2)}</strong></p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             <div className="order-total">
-              <h3>Total Amount: ${totalAmount}</h3>
+              <h3>Total Amount: Rs. {totalAmount}</h3>
             </div>
           </div>
 

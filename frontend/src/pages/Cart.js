@@ -118,7 +118,7 @@ const Cart = () => {
         const result = await response.json();
         console.log('Purchase result:', result);
         setCartItems([]);
-        alert(`${result.message}\nTotal: $${result.total}\nItems: ${result.itemCount}`);
+        alert(`${result.message}\nTotal: Rs. ${result.total}\nItems: ${result.itemCount}`);
       } else {
         const error = await response.text();
         console.error('Purchase failed:', error);
@@ -174,7 +174,7 @@ const Cart = () => {
 
       if (deleteResponse.ok) {
         setCartItems(cartItems.filter(cartItem => cartItem._id !== item._id));
-        alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: $${itemTotal}`);
+        alert(`Purchase successful!\nItem: ${item.name}\nQuantity: ${item.quantity}\nTotal: Rs. ${itemTotal}`);
       } else {
         alert('Purchase failed');
       }
@@ -243,7 +243,7 @@ const Cart = () => {
                     <h3>{item.name}</h3>
                     <p className="cart-item-details">{item.details}</p>
                     <p className="cart-item-price">
-                      ${item.price} × {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
+                      Rs. {item.price} × {item.quantity} = Rs. {(item.price * item.quantity).toFixed(2)}
                     </p>
                     <span className="item-type-badge">
                       {item.itemType === 'instrument' ? 'Instrument' : 'Part'}
@@ -286,7 +286,7 @@ const Cart = () => {
             <div className="cart-summary">
               <div className="cart-total">
                 <h2>Total:</h2>
-                <h2 className="total-amount">${calculateTotal()}</h2>
+                <h2 className="total-amount">Rs. {calculateTotal()}</h2>
               </div>
               <button 
                 onClick={handlePurchase}
