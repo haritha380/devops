@@ -6,7 +6,6 @@ import './AdminPages.css';
 const AdminProfile = () => {
   const { user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
-  const [uploading, setUploading] = useState(false);
   const [stats, setStats] = useState({
     totalInstruments: 0,
     totalParts: 0,
@@ -150,35 +149,19 @@ const AdminProfile = () => {
     }
   };
 
-  const handlePhotoChange = async (e) => {
+  const handlePhotoChange = (e) => {
     const file = e.target.files[0];
-    if (!file) return;
-
-    if (file.size > 5000000) { // 5MB limit
-      alert('File size should be less than 5MB');
-      return;
-    }
-
-    setUploading(true);
-    const formDataUpload = new FormData();
-    formDataUpload.append('photo', file);
-
-    try {
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formDataUpload,
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        setProfileData({ ...profileData, profilePhoto: data.url });
-      } else {
-        alert(data.message || 'Failed to upload image');
+    if (file) {
+      if (file.size > 5000000) { // 5MB limit
+        alert('File size should be less than 5MB');
+        return;
       }
-    } catch (error) {
-      alert('Error uploading image: ' + error.message);
-    } finally {
-      setUploading(false);
+      
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileData({ ...profileData, profilePhoto: reader.result });
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -207,24 +190,13 @@ const AdminProfile = () => {
             {isEditing ? (
               <div className="admin-form">
                 <div className="form-group">
-                  <label>Profile Photo URL (or upload below)</label>
-                  <input
-                    type="text"
-                    value={profileData.profilePhoto}
-                    onChange={(e) => setProfileData({ ...profileData, profilePhoto: e.target.value })}
-                    placeholder="Enter photo URL"
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Or Upload Photo from Desktop</label>
+                  <label>Profile Photo</label>
                   <input
                     type="file"
                     accept="image/*"
                     onChange={handlePhotoChange}
-                    disabled={uploading}
                     style={{ marginBottom: '10px' }}
                   />
-                  {uploading && <p style={{ color: '#666', fontSize: '0.9rem' }}>Uploading...</p>}
                   {profileData.profilePhoto && (
                     <div style={{ marginTop: '10px' }}>
                       <img 

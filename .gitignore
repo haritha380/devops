@@ -13,5 +13,3 @@ logs
 *.log
 docker-compose.override.yml
 jenkins_home/
-backend/uploads/*
-!backend/uploads/.gitkeep
