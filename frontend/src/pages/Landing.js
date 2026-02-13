@@ -38,7 +38,7 @@ const Landing = () => {
 
       <div className="landing-content">
         <div className="landing-hero">
-          <h1 className="landing-title">Welcome to Musicstore.lk</h1>
+          <h1 className="landing-title">Haritha</h1>
           <p className="landing-subtitle">Your Premier Destination for Musical Instruments</p>
           <p className="landing-description">
             Discover the finest collection of instruments, parts, and accessories. 

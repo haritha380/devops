@@ -78,7 +78,7 @@ pipeline {
         stage('Deploy Docker Compose') {
             steps {
                 sh """
-                ssh 13.126.171.198 'docker-compose up -d --pull always'
+                cd /var/lib/jenkins && terraform init && terraform apply -auto-approve
                 """
             }
         }
