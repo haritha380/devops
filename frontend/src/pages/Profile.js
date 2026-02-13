@@ -72,13 +72,22 @@ const Profile = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      if (!response.ok) {
+        const errorText = await response.text();
+        try {
+          const errorData = JSON.parse(errorText);
+          setError(errorData.message || 'Failed to update profile');
+        } catch {
+          setError('Failed to update profile: ' + errorText);
+        }
+        return;
+      }
 
-      if (response.ok) {
-        setMessage('Profile updated successfully!');
-        setEditMode(false);
-        // Reload page to fetch updated user data
-        setTimeout(() => window.location.reload(), 1500);
+      const data = await response.json();
+      setMessage('Profile updated successfully!');
+      setEditMode(false);
+      // Reload page to fetch updated user data
+      setTimeout(() => window.location.reload(), 1500);
       } else {
         setError(data.message || 'Failed to update profile');
       }
