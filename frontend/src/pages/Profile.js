@@ -41,6 +41,22 @@ const Profile = () => {
     setPasswordData({ ...passwordData, [name]: value });
   };
 
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 5000000) { // 5MB limit
+        setError('File size should be less than 5MB');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData({ ...formData, photo: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -151,6 +167,14 @@ const Profile = () => {
                   value={formData.photo}
                   onChange={handleInputChange}
                   placeholder="Enter photo URL"
+                />
+              </div>
+              <div className="form-group">
+                <label>Or Upload Photo from Device</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileUpload}
                 />
               </div>
               {formData.photo && (
