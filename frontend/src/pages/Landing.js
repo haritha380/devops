@@ -39,7 +39,7 @@ const Landing = () => {
       <div className="landing-content">
         <div className="landing-hero">
           <h1 className="landing-title">Haritha</h1>
-          <p className="landing-subtitle">Bandara </p>
+          <p className="landing-subtitle"> kaveeshwara Bandara </p>
           <p className="landing-description">
             Discover the finest collection of instruments, parts, and accessories. 
             Whether you're a beginner or a professional, we have everything you need to make beautiful music.
