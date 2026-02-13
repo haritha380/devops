@@ -88,9 +88,6 @@ const Profile = () => {
       setEditMode(false);
       // Reload page to fetch updated user data
       setTimeout(() => window.location.reload(), 1500);
-      } else {
-        setError(data.message || 'Failed to update profile');
-      }
     } catch (err) {
       setError('Error updating profile: ' + err.message);
     }
