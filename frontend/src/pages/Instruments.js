@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import './Pages.css';
 
@@ -6,10 +7,22 @@ const Instruments = () => {
   const [instruments, setInstruments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const location = useLocation();
+  const itemId = location.state?.itemId;
 
   useEffect(() => {
     fetchInstruments();
   }, []);
+
+  useEffect(() => {
+    if (itemId && instruments.length > 0) {
+      const element = document.getElementById(`item-${itemId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.style.animation = 'highlight 2s';
+      }
+    }
+  }, [itemId, instruments]);
 
   const fetchInstruments = async () => {
     try {
@@ -139,7 +152,7 @@ const Instruments = () => {
             <p>No instruments available at the moment.</p>
           ) : (
             instruments.map((instrument) => (
-              <div key={instrument._id} className="item-card">
+              <div key={instrument._id} id={`item-${instrument._id}`} className="item-card">
                 {instrument.image && (
                   <div className="item-image">
                     <img src={instrument.image} alt={instrument.name} />

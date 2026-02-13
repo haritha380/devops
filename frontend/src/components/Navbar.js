@@ -68,9 +68,9 @@ const Navbar = () => {
     setSearchQuery('');
     setSearchResults([]);
     if (item.type === 'instrument') {
-      navigate('/instruments');
+      navigate('/instruments', { state: { itemId: item._id } });
     } else {
-      navigate('/instrument-parts');
+      navigate('/instrument-parts', { state: { itemId: item._id } });
     }
   };
 
